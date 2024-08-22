@@ -15,6 +15,10 @@
 		040DF3052C76272F007034C9 /* Countries_InfoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DF3042C76272F007034C9 /* Countries_InfoTests.swift */; };
 		040DF30F2C76272F007034C9 /* Countries_InfoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DF30E2C76272F007034C9 /* Countries_InfoUITests.swift */; };
 		040DF3112C76272F007034C9 /* Countries_InfoUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 040DF3102C76272F007034C9 /* Countries_InfoUITestsLaunchTests.swift */; };
+		B7A812172C77289A00E7EBC8 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = B7A812162C77289A00E7EBC8 /* SideMenu */; };
+		B7A8121A2C77291A00E7EBC8 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B7A812192C77291A00E7EBC8 /* GoogleSignIn */; };
+		B7A8121D2C77298300E7EBC8 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B7A8121C2C77298300E7EBC8 /* AlamofireDynamic */; };
+		B7A812202C7729CB00E7EBC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B7A8121F2C7729CB00E7EBC8 /* Kingfisher */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +58,10 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B7A812202C7729CB00E7EBC8 /* Kingfisher in Frameworks */,
+				B7A812172C77289A00E7EBC8 /* SideMenu in Frameworks */,
+				B7A8121D2C77298300E7EBC8 /* AlamofireDynamic in Frameworks */,
+				B7A8121A2C77291A00E7EBC8 /* GoogleSignIn in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -140,6 +148,12 @@
 			dependencies = (
 			);
 			name = "Countries Info";
+			packageProductDependencies = (
+				B7A812162C77289A00E7EBC8 /* SideMenu */,
+				B7A812192C77291A00E7EBC8 /* GoogleSignIn */,
+				B7A8121C2C77298300E7EBC8 /* AlamofireDynamic */,
+				B7A8121F2C7729CB00E7EBC8 /* Kingfisher */,
+			);
 			productName = "Countries Info";
 			productReference = 040DF2EA2C762729007034C9 /* Countries Info.app */;
 			productType = "com.apple.product-type.application";
@@ -212,6 +226,12 @@
 				Base,
 			);
 			mainGroup = 040DF2E12C762729007034C9;
+			packageReferences = (
+				B7A812152C77289A00E7EBC8 /* XCRemoteSwiftPackageReference "SideMenu" */,
+				B7A812182C77291A00E7EBC8 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				B7A8121B2C77298300E7EBC8 /* XCRemoteSwiftPackageReference "Alamofire" */,
+				B7A8121E2C7729CB00E7EBC8 /* XCRemoteSwiftPackageReference "Kingfisher" */,
+			);
 			productRefGroup = 040DF2EB2C762729007034C9 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -596,6 +616,64 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		B7A812152C77289A00E7EBC8 /* XCRemoteSwiftPackageReference "SideMenu" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/jonkykong/SideMenu";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.5.0;
+			};
+		};
+		B7A812182C77291A00E7EBC8 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 8.0.0;
+			};
+		};
+		B7A8121B2C77298300E7EBC8 /* XCRemoteSwiftPackageReference "Alamofire" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/Alamofire/Alamofire";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 5.9.1;
+			};
+		};
+		B7A8121E2C7729CB00E7EBC8 /* XCRemoteSwiftPackageReference "Kingfisher" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/onevcat/Kingfisher";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 7.12.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		B7A812162C77289A00E7EBC8 /* SideMenu */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A812152C77289A00E7EBC8 /* XCRemoteSwiftPackageReference "SideMenu" */;
+			productName = SideMenu;
+		};
+		B7A812192C77291A00E7EBC8 /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A812182C77291A00E7EBC8 /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		B7A8121C2C77298300E7EBC8 /* AlamofireDynamic */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A8121B2C77298300E7EBC8 /* XCRemoteSwiftPackageReference "Alamofire" */;
+			productName = AlamofireDynamic;
+		};
+		B7A8121F2C7729CB00E7EBC8 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A8121E2C7729CB00E7EBC8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 040DF2E22C762729007034C9 /* Project object */;
 }
