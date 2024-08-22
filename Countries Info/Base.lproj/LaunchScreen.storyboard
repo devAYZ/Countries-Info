@@ -20,35 +20,68 @@
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.089999999999999997" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="world-map-big" translatesAutoresizingMaskIntoConstraints="NO" id="g9U-1W-NsT">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="-10" translatesAutoresizingMaskIntoConstraints="NO" id="wT7-FW-OVZ">
-                                <rect key="frame" x="0.0" y="397" width="393" height="58.333333333333314"/>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sweden-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-0d-Hsh">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="wT7-FW-OVZ">
+                                <rect key="frame" x="0.0" y="394.33333333333331" width="393" height="63.333333333333314"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countries Info" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-Jb-jFV">
-                                        <rect key="frame" x="74.666666666666686" y="0.0" width="244" height="41.666666666666664"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countries Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-Jb-jFV">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="41.666666666666664"/>
                                         <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="36"/>
                                         <color key="textColor" systemColor="systemRedColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="..in their Majority" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-vU-fMD">
-                                        <rect key="frame" x="112" y="31.666666666666686" width="169" height="26.666666666666671"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="         ..in their Majority" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-vU-fMD">
+                                        <rect key="frame" x="0.0" y="36.666666666666686" width="393" height="26.666666666666671"/>
                                         <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="23"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
-                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="backgroundColor" red="1" green="0.58431372549019611" blue="0.0" alpha="0.1482780612244898" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="5Ja-u0-z9Y">
+                                <rect key="frame" x="0.0" y="812" width="393" height="40"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvK-CL-rOA">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="40"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haV-LW-cs5">
+                                                <rect key="frame" x="170.66666666666666" y="9" width="52" height="22"/>
+                                                <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                        <constraints>
+                                            <constraint firstItem="haV-LW-cs5" firstAttribute="centerY" secondItem="jvK-CL-rOA" secondAttribute="centerY" id="RrN-j7-Ohs"/>
+                                            <constraint firstAttribute="height" constant="40" id="fYA-w0-YgF"/>
+                                            <constraint firstItem="haV-LW-cs5" firstAttribute="centerX" secondItem="jvK-CL-rOA" secondAttribute="centerX" id="jPk-iw-CLt"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
                             </stackView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="CD1-0d-Hsh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8nC-MX-r56"/>
                             <constraint firstAttribute="bottom" secondItem="g9U-1W-NsT" secondAttribute="bottom" id="D38-Ov-oGn"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wT7-FW-OVZ" secondAttribute="trailing" id="GtV-F1-P5s"/>
+                            <constraint firstAttribute="bottom" secondItem="5Ja-u0-z9Y" secondAttribute="bottom" id="K6M-SI-zeo"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="5Ja-u0-z9Y" secondAttribute="trailing" id="Mf8-oX-0Yi"/>
+                            <constraint firstItem="CD1-0d-Hsh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QT7-0g-1bU"/>
                             <constraint firstItem="g9U-1W-NsT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SMQ-Pr-wbo"/>
+                            <constraint firstItem="5Ja-u0-z9Y" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="UlJ-yu-9LG"/>
+                            <constraint firstItem="CD1-0d-Hsh" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="VTz-gr-m1d"/>
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g9U-1W-NsT" secondAttribute="trailing" id="YPe-3F-jl4"/>
                             <constraint firstItem="wT7-FW-OVZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="az1-H6-5hW"/>
                             <constraint firstItem="wT7-FW-OVZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ca0-eW-WLS"/>
                             <constraint firstItem="g9U-1W-NsT" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="eXL-XX-Oq1"/>
+                            <constraint firstAttribute="bottom" secondItem="CD1-0d-Hsh" secondAttribute="bottom" id="wui-YV-NA3"/>
                         </constraints>
                     </view>
                 </viewController>
@@ -58,9 +91,13 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Sweden-transparent" width="361" height="765"/>
         <image name="world-map-big" width="1600" height="900"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
         <systemColor name="systemRedColor">
             <color red="1" green="0.23137254901960785" blue="0.18823529411764706" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
