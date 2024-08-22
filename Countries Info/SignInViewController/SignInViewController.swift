@@ -8,10 +8,19 @@
 import UIKit
 
 class SignInViewController: BaseViewController {
+    
+    // MARK: Views
+    private lazy var backgroundImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = .init(named: "Sweden-transparent")
+        imageView.contentMode = .center
+        imageView.alpha = .pointTwo
+        return imageView
+    }()
 
     override func basicSetup() {
         //
-        view.backgroundColor = .systemBackground
+        setupViews()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -22,6 +31,16 @@ class SignInViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func setupViews() {
+        view.backgroundColor = .systemBackground
+        view.addSubview(backgroundImageView)
+        
+        backgroundImageView.anchor(top: view.topAnchor,
+                                   left: view.leftAnchor,
+                                   bottom: view.bottomAnchor,
+                                   right: view.rightAnchor)
     }
     
 }

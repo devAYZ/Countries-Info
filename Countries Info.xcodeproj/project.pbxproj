@@ -28,6 +28,7 @@
 		B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812362C7737C900E7EBC8 /* HomeViewController.swift */; };
 		B7A8123A2C77393500E7EBC8 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812392C77393500E7EBC8 /* UIView + Extension.swift */; };
 		B7A8123C2C77398500E7EBC8 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */; };
+		B7A8123E2C773FB300E7EBC8 /* CGFloat + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8123D2C773FB300E7EBC8 /* CGFloat + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,6 +70,7 @@
 		B7A812362C7737C900E7EBC8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		B7A812392C77393500E7EBC8 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
+		B7A8123D2C773FB300E7EBC8 /* CGFloat + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat + Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -203,6 +205,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A812392C77393500E7EBC8 /* UIView + Extension.swift */,
+				B7A8123D2C773FB300E7EBC8 /* CGFloat + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -361,6 +364,7 @@
 				B7A8122F2C772D7400E7EBC8 /* ManagerModels.swift in Sources */,
 				040DF2F02C762729007034C9 /* SceneDelegate.swift in Sources */,
 				B7A812292C772C1600E7EBC8 /* BaseViewController.swift in Sources */,
+				B7A8123E2C773FB300E7EBC8 /* CGFloat + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
