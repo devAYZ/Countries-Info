@@ -22,6 +22,7 @@ class SignInViewController: BaseViewController {
     private lazy var signinButton: GIDSignInButton = {
         let button = GIDSignInButton()
         button.anchor(height: 60)
+        button.style = .wide
         button.addTarget(self, action: #selector(handleSignin), for: .touchUpInside)
         return button
     }()
@@ -95,12 +96,28 @@ class SignInViewController: BaseViewController {
         view.addSubview(bodyStack)
         bodyStack.centerY(inView: view)
         bodyStack.anchor(left: view.leftAnchor,
-                         right: view.rightAnchor)
+                         right: view.rightAnchor,
+                         paddingLeft: 12,
+                         paddingRight: 12)
         
     }
     
     @objc private func handleSignin() {
-        print("didSignin")
+        // Google Signin
+        GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
+            guard error == nil else {
+                self.showAlert(title: "Error", message: error?.localizedDescription, completion: nil)
+                return
+            }
+            
+            // If sign in succeeded, display the app's main content View.
+            guard let result = signInResult else {
+                self.showAlert(title: "Error", message: "Data Not Found", completion: nil)
+                return
+            }
+            self.dataManager.userProfile = result.user.profile
+            self.coordinator?.openHome()
+        }
     }
     
 }

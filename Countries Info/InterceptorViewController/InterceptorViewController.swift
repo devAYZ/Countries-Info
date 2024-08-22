@@ -23,15 +23,15 @@ final class InterceptorViewController: BaseViewController {
         setupViews()
         zoomInLogo(backgroundImageView)
         
-        Timer.scheduledTimer(withTimeInterval: 1.5, repeats: false) { _ in
+        Timer.scheduledTimer(withTimeInterval: 1.2, repeats: false) { _ in
             self.openNavigation()
         }
     }
     
     private func openNavigation() {
-//        dataManager.userProfile == nil ? coordinator?.openSignin() : coordinator?.openHome()
-//        coordinator?.openHome()
-        coordinator?.openSignin()
+        dataManager.userProfile == nil ?
+        coordinator?.openSignin() :
+        coordinator?.openHome(animated: false)
     }
     
     private func setupViews() {

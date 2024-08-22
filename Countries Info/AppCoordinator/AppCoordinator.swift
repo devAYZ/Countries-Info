@@ -41,10 +41,10 @@ public class AppCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func openHome() {
+    func openHome(animated: Bool = true) {
         let vc = HomeViewController()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: animated)
     }
     
 }
