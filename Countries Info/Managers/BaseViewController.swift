@@ -34,7 +34,7 @@ class BaseViewController: UIViewController, DataManagerInjector {
         SideMenuManager.default.leftMenuNavigationController = sideMenu
     }
     
-    @objc func sideMenuClicked() {
+    @objc func handleSideMenu() {
         present(sideMenu!, animated: true)
     }
     

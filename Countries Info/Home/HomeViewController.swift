@@ -20,6 +20,7 @@ final class HomeViewController: BaseViewController {
     }()
 
     override func basicSetup() {
+        super.basicSetup()
         //
         setupSideMenu()
         view.backgroundColor = .systemBackground
@@ -41,7 +42,17 @@ final class HomeViewController: BaseViewController {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
+    
+    public func attachSideMenu(rootVC: SideMenuViewController) {
+        sideMenu = SideMenuNavController(rootViewController: rootVC)
+        rootVC.delegate = self
+    }
+}
 
+extension HomeViewController: SideMenuDisplay {
+    func didSelectMenu(menu: SideMenuOptions) {
+        switchSideMenuSelected(selectedMenu: menu, currentMenu: .home)
+    }
 }
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
@@ -56,6 +67,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
+        handleSideMenu()
     }
     
 }

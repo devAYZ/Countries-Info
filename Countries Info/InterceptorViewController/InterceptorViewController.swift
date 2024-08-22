@@ -20,6 +20,8 @@ final class InterceptorViewController: BaseViewController {
     
     // MARK: Lifecycle Methods
     override func basicSetup() {
+        super.basicSetup()
+        
         setupViews()
         zoomInLogo(backgroundImageView)
         

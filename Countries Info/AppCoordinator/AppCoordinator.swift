@@ -44,6 +44,7 @@ public class AppCoordinator: Coordinator {
     func openHome(animated: Bool = true) {
         let vc = HomeViewController()
         vc.coordinator = self
+        vc.attachSideMenu(rootVC: .init())
         navigationController.pushViewController(vc, animated: animated)
     }
     

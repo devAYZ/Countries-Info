@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeTVCell: UITableViewCell {
+final class HomeTVCell: UITableViewCell {
     
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()

@@ -8,7 +8,7 @@
 import GoogleSignIn
 import UIKit
 
-class SignInViewController: BaseViewController {
+final class SignInViewController: BaseViewController {
     
     // MARK: Views
     private lazy var backgroundImageView: UIImageView = {
@@ -70,6 +70,7 @@ class SignInViewController: BaseViewController {
     }()
 
     override func basicSetup() {
+        super.basicSetup()
         //
         setupViews()
     }
