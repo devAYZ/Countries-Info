@@ -24,6 +24,10 @@
 		B7A812292C772C1600E7EBC8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812282C772C1600E7EBC8 /* BaseViewController.swift */; };
 		B7A8122C2C772C9900E7EBC8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8122B2C772C9900E7EBC8 /* DataManager.swift */; };
 		B7A8122F2C772D7400E7EBC8 /* ManagerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8122E2C772D7400E7EBC8 /* ManagerModels.swift */; };
+		B7A812322C77372200E7EBC8 /* SignInViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812312C77372200E7EBC8 /* SignInViewController.swift */; };
+		B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812362C7737C900E7EBC8 /* HomeViewController.swift */; };
+		B7A8123A2C77393500E7EBC8 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812392C77393500E7EBC8 /* UIView + Extension.swift */; };
+		B7A8123C2C77398500E7EBC8 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,6 +65,10 @@
 		B7A812282C772C1600E7EBC8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B7A8122B2C772C9900E7EBC8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B7A8122E2C772D7400E7EBC8 /* ManagerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModels.swift; sourceTree = "<group>"; };
+		B7A812312C77372200E7EBC8 /* SignInViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViewController.swift; sourceTree = "<group>"; };
+		B7A812362C7737C900E7EBC8 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		B7A812392C77393500E7EBC8 /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
+		B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTVCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -115,9 +123,12 @@
 		040DF2EC2C762729007034C9 /* Countries Info */ = {
 			isa = PBXGroup;
 			children = (
-				B7A812272C772B5700E7EBC8 /* Managers */,
+				B7A812382C77392600E7EBC8 /* Extensions */,
+				B7A812332C7737B100E7EBC8 /* Home */,
+				B7A812302C77370500E7EBC8 /* SignInViewController */,
 				B7A812242C772B2600E7EBC8 /* InterceptorViewController */,
 				B7A812212C772AE300E7EBC8 /* AppCoordinator */,
+				B7A812272C772B5700E7EBC8 /* Managers */,
 				040DF2ED2C762729007034C9 /* AppDelegate.swift */,
 				040DF2EF2C762729007034C9 /* SceneDelegate.swift */,
 				040DF2F12C762729007034C9 /* ViewController.swift */,
@@ -169,6 +180,31 @@
 				B7A8122E2C772D7400E7EBC8 /* ManagerModels.swift */,
 			);
 			path = Managers;
+			sourceTree = "<group>";
+		};
+		B7A812302C77370500E7EBC8 /* SignInViewController */ = {
+			isa = PBXGroup;
+			children = (
+				B7A812312C77372200E7EBC8 /* SignInViewController.swift */,
+			);
+			path = SignInViewController;
+			sourceTree = "<group>";
+		};
+		B7A812332C7737B100E7EBC8 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B7A812362C7737C900E7EBC8 /* HomeViewController.swift */,
+				B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B7A812382C77392600E7EBC8 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				B7A812392C77393500E7EBC8 /* UIView + Extension.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -317,7 +353,11 @@
 				040DF2F22C762729007034C9 /* ViewController.swift in Sources */,
 				040DF2EE2C762729007034C9 /* AppDelegate.swift in Sources */,
 				B7A8122C2C772C9900E7EBC8 /* DataManager.swift in Sources */,
+				B7A8123A2C77393500E7EBC8 /* UIView + Extension.swift in Sources */,
 				B7A812262C772B4000E7EBC8 /* InterceptorViewController.swift in Sources */,
+				B7A8123C2C77398500E7EBC8 /* HomeTVCell.swift in Sources */,
+				B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */,
+				B7A812322C77372200E7EBC8 /* SignInViewController.swift in Sources */,
 				B7A8122F2C772D7400E7EBC8 /* ManagerModels.swift in Sources */,
 				040DF2F02C762729007034C9 /* SceneDelegate.swift in Sources */,
 				B7A812292C772C1600E7EBC8 /* BaseViewController.swift in Sources */,

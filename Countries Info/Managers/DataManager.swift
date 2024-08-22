@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import GoogleSignIn
 
 protocol DataManagerInjector {
     var dataManager: DataManager { get }
@@ -32,6 +33,8 @@ final class DataManager {
             UserDefaults.standard.setValue(value, forKey: DataManagerKeys.hasSeenOnboardingSlide.rawValue)
         }
     }
+    
+    var userProfile: GIDProfileData?
 }
 
 extension DataManagerInjector {

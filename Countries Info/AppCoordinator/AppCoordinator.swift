@@ -34,4 +34,17 @@ public class AppCoordinator: Coordinator {
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }
+    
+    func openSignin() {
+        let vc = SignInViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
+    func openHome() {
+        let vc = HomeViewController()
+        vc.coordinator = self
+        navigationController.pushViewController(vc, animated: false)
+    }
+    
 }
