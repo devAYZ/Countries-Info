@@ -30,8 +30,8 @@ final class InterceptorViewController: BaseViewController {
     
     private func openNavigation() {
 //        dataManager.userProfile == nil ? coordinator?.openSignin() : coordinator?.openHome()
-        coordinator?.openHome()
-//        coordinator?.openSignin()
+//        coordinator?.openHome()
+        coordinator?.openSignin()
     }
     
     private func setupViews() {
