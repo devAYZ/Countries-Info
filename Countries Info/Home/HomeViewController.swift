@@ -13,7 +13,7 @@ final class HomeViewController: BaseViewController {
     lazy var countryTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(HomeTVCell.self, forCellReuseIdentifier: "\(HomeTVCell.self)")
-        tableView.rowHeight = 55
+        tableView.rowHeight = 80
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
         return tableView
@@ -21,6 +21,7 @@ final class HomeViewController: BaseViewController {
 
     override func basicSetup() {
         //
+        setupSideMenu()
         view.backgroundColor = .systemBackground
         countryTableView.dataSource = self
         countryTableView.delegate = self

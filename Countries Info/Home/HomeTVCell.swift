@@ -9,34 +9,69 @@ import UIKit
 
 class HomeTVCell: UITableViewCell {
     
-    lazy var nameLabel: UILabel = {
+    private lazy var iconImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.contentMode = .scaleAspectFit
+        imageView.anchor(width: 40, height: 40)
+        imageView.layer.cornerRadius = 20
+        imageView.clipsToBounds = true
+        return imageView
+    }()
+    
+    lazy var countryLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 12, weight: .medium)
-        label.textAlignment = .center
-        label.text = "Ayokunle Emmanuel"
+        label.font = .systemFont(ofSize: 20, weight: .medium)
+        label.text = "Nigeria"
+        return label
+    }()
+    
+    lazy var cityLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 14, weight: .regular)
+        label.text = "Lagos"
         return label
     }()
 
     lazy var labelStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            nameLabel
+            countryLabel, cityLabel
         ])
         stackView.axis = .vertical
-        stackView.alignment = .leading
+        stackView.alignment = .fill
         stackView.distribution = .fill
-        stackView.spacing = 5
         return stackView
+    }()
+    
+    lazy var currencyLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 16, weight: .regular)
+        label.textAlignment = .right
+        label.text = "$"
+        return label
+    }()
+    
+    private lazy var arrowImageView: UIImageView = {
+        let imageView = UIImageView()
+        imageView.image = .init(systemName: "chevron.forward")
+        imageView.contentMode = .center
+        imageView.anchor(width: 24, height: 16)
+        imageView.clipsToBounds = true
+        imageView.tintColor = .label
+        return imageView
     }()
 
     lazy var bodyStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            labelStack
+            iconImageView, labelStack,
+            currencyLabel, arrowImageView
         ])
         stackView.axis = .horizontal
         stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 0
+        stackView.distribution = .fill
+        stackView.spacing = 15
         return stackView
     }()
 
@@ -58,6 +93,7 @@ class HomeTVCell: UITableViewCell {
 
     private func setupLayout() {
         contentView.addSubview(bodyStack)
+        iconImageView.loadImage(from: "https://picsum.photos/200")
         bodyStack.anchor(top: contentView.topAnchor,
                          left: contentView.leftAnchor,
                          bottom: contentView.bottomAnchor,
