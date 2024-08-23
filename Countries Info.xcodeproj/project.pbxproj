@@ -19,6 +19,8 @@
 		0435E9062C77E1B200F0A472 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9052C77E1B200F0A472 /* SideMenuViewController.swift */; };
 		0435E9082C77FA7500F0A472 /* SideMenuTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9072C77FA7500F0A472 /* SideMenuTVCell.swift */; };
 		0435E90B2C7806F300F0A472 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E90A2C7806F300F0A472 /* SettingsViewController.swift */; };
+		B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E42C7880A200DF058D /* HomeViews.swift */; };
+		B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E62C78835600DF058D /* SettingsViews.swift */; };
 		B7A812172C77289A00E7EBC8 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = B7A812162C77289A00E7EBC8 /* SideMenu */; };
 		B7A8121A2C77291A00E7EBC8 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B7A812192C77291A00E7EBC8 /* GoogleSignIn */; };
 		B7A8121D2C77298300E7EBC8 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B7A8121C2C77298300E7EBC8 /* AlamofireDynamic */; };
@@ -70,6 +72,8 @@
 		0435E9052C77E1B200F0A472 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		0435E9072C77FA7500F0A472 /* SideMenuTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVCell.swift; sourceTree = "<group>"; };
 		0435E90A2C7806F300F0A472 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		B730E6E42C7880A200DF058D /* HomeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViews.swift; sourceTree = "<group>"; };
+		B730E6E62C78835600DF058D /* SettingsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViews.swift; sourceTree = "<group>"; };
 		B7A812222C772B0B00E7EBC8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B7A812252C772B4000E7EBC8 /* InterceptorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorViewController.swift; sourceTree = "<group>"; };
 		B7A812282C772C1600E7EBC8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -190,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				0435E90A2C7806F300F0A472 /* SettingsViewController.swift */,
+				B730E6E62C78835600DF058D /* SettingsViews.swift */,
 			);
 			path = Settings;
 			sourceTree = "<group>";
@@ -232,6 +237,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A812362C7737C900E7EBC8 /* HomeViewController.swift */,
+				B730E6E42C7880A200DF058D /* HomeViews.swift */,
 				B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */,
 			);
 			path = Home;
@@ -394,6 +400,7 @@
 				0435E9062C77E1B200F0A472 /* SideMenuViewController.swift in Sources */,
 				B7A812232C772B0B00E7EBC8 /* AppCoordinator.swift in Sources */,
 				0435E9002C77B9ED00F0A472 /* UIViewController + Extension.swift in Sources */,
+				B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */,
 				040DF2EE2C762729007034C9 /* AppDelegate.swift in Sources */,
 				0435E9082C77FA7500F0A472 /* SideMenuTVCell.swift in Sources */,
 				B7A8122C2C772C9900E7EBC8 /* DataManager.swift in Sources */,
@@ -403,6 +410,7 @@
 				B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */,
 				B7A812322C77372200E7EBC8 /* SignInViewController.swift in Sources */,
 				B7A8122F2C772D7400E7EBC8 /* ManagerModels.swift in Sources */,
+				B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */,
 				040DF2F02C762729007034C9 /* SceneDelegate.swift in Sources */,
 				0435E9022C77C1C500F0A472 /* UIImageView + Extension.swift in Sources */,
 				B7A812402C77499100E7EBC8 /* Int + Extension.swift in Sources */,

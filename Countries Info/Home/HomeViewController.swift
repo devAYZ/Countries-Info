@@ -8,55 +8,17 @@
 import UIKit
 
 final class HomeViewController: BaseViewController {
-    
-    // MARK: View
-    lazy var countryTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(HomeTVCell.self, forCellReuseIdentifier: "\(HomeTVCell.self)")
-        tableView.rowHeight = 80
-        tableView.separatorStyle = .none
-        tableView.showsVerticalScrollIndicator = false
-        return tableView
-    }()
-    
-    // MARK: Views
-    private lazy var sideMenuButton: UIButton = {
-        let button = UIButton()
-        button.anchor(width: 30, height: 30)
-        button.setImage(.init(named: "side-menu-icon"), for: .normal)
-        button.addTarget(self, action: #selector(handleSideMenu), for: .touchUpInside)
-        button.backgroundColor = .systemGreen.withAlphaComponent(0.2)
-        button.layer.cornerRadius = 5
-        return button
-    }()
-    
-    lazy var topLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 25, weight: .semibold)
-        label.text = "Favourite Countries List"
-        label.textAlignment = .center
-        label.textColor = .label
-        return label
-    }()
-    
-    lazy var headerStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            sideMenuButton, topLabel
-        ])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        return stackView
-    }()
 
+    // MARK: Views
+    private var displayView: HomeViews?
+    
     override func basicSetup() {
         super.basicSetup()
         //
         setupSideMenu()
         setupViews()
-        countryTableView.dataSource = self
-        countryTableView.delegate = self
+        displayView?.countryTableView.dataSource = self
+        displayView?.countryTableView.delegate = self
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -69,20 +31,31 @@ final class HomeViewController: BaseViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    func attachViews(_ displayView: HomeViews) {
+        self.displayView = displayView
+    }
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(headerStack, countryTableView)
+        guard let displayView = displayView else { return }
         
-        headerStack.anchor(
+        view.addSubviews(displayView.headerStack, displayView.countryTableView)
+        
+        displayView.sideMenuButton.addTarget(
+            self,
+            action: #selector(handleSideMenu),
+            for: .touchUpInside)
+        
+        displayView.headerStack.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
-            bottom: countryTableView.topAnchor,
+            bottom: displayView.countryTableView.topAnchor,
             right: view.rightAnchor,
             paddingTop: 5,
             paddingLeft: 5,
             paddingRight: 5)
         
-        countryTableView.anchor(
+        displayView.countryTableView.anchor(
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor,
@@ -90,7 +63,7 @@ final class HomeViewController: BaseViewController {
             paddingRight: 5)
     }
     
-    public func attachSideMenu(rootVC: SideMenuViewController) {
+    public func attachSideMenu(_ rootVC: SideMenuViewController) {
         sideMenu = SideMenuNavController(rootViewController: rootVC)
         rootVC.delegate = self
     }

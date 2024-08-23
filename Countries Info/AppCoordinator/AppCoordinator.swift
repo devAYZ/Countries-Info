@@ -45,14 +45,16 @@ public class AppCoordinator: Coordinator {
     func openHome(animated: Bool = true) {
         let vc = HomeViewController()
         vc.coordinator = self
-        vc.attachSideMenu(rootVC: .init())
+        vc.attachViews(.init())
+        vc.attachSideMenu(.init())
         navigationController.pushViewController(vc, animated: animated)
     }
     
     func openSettings() {
         let vc = SettingsViewController()
         vc.coordinator = self
-        vc.attachSideMenu(rootVC: .init())
+        vc.attachViews(.init())
+        vc.attachSideMenu(.init())
         navigationController.pushViewController(vc, animated: true)
     }
     

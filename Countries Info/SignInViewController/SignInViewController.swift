@@ -65,7 +65,7 @@ final class SignInViewController: BaseViewController {
         stackView.axis = .vertical
         stackView.alignment = .center
         stackView.distribution = .equalSpacing
-        stackView.spacing = 30
+        stackView.spacing = 50
         return stackView
     }()
 

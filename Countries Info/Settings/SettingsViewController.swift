@@ -8,74 +8,19 @@
 import UIKit
 
 final class SettingsViewController: BaseViewController {
-
+    
     // MARK: Views
-    private lazy var iconImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.anchor(width: 70, height: 70)
-        imageView.layer.cornerRadius = 35
-        imageView.clipsToBounds = true
-        return imageView
-    }()
+    private var displayView: SettingsViews?
     
-    lazy var nameLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        return label
-    }()
-    
-    lazy var emailLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        return label
-    }()
-    
-    lazy var headerStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            iconImageView, nameLabel, emailLabel
-        ])
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 5
-        return stackView
-    }()
-    
-    private lazy var signoutButton: UIButton = {
-        let button = UIButton()
-        button.setTitle("Sign out", for: .normal)
-        button.addTarget(self, action: #selector(handleSignout), for: .touchUpInside)
-        button.backgroundColor = .systemRed.withAlphaComponent(0.5)
-        button.layer.cornerRadius = 5
-        return button
-    }()
-    
-    private lazy var footerView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemGreen.withAlphaComponent(0.4)
-        return view
-    }()
-    
-    lazy var versionLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.textAlignment = .center
-        label.text = "v1.0.0"
-        return label
-    }()
-    
+    // MARK: Basic Setup
     override func basicSetup() {
         super.basicSetup()
         setupViews()
         setupSideMenu()
         
-        nameLabel.text = dataManager.userProfile?.name
-        emailLabel.text = dataManager.userProfile?.email
-        iconImageView.loadImage(from: dataManager.userProfile?.imageURL(withDimension: 200))
+        displayView?.nameLabel.text = dataManager.userProfile?.name
+        displayView?.emailLabel.text = dataManager.userProfile?.email
+        displayView?.iconImageView.loadImage(from: dataManager.userProfile?.imageURL(withDimension: 200))
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -85,40 +30,39 @@ final class SettingsViewController: BaseViewController {
             target: self, action: #selector(handleSideMenu))
     }
     
+    func attachViews(_ displayView: SettingsViews) {
+        self.displayView = displayView
+    }
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(headerStack, signoutButton, footerView)
+        guard let displayView = displayView else { return }
         
-        footerView.addSubview(versionLabel)
+        view.addSubviews(displayView.bodyStack, displayView.footerView)
         
-        headerStack.anchor(
+        displayView.footerView.addSubview(displayView.versionLabel)
+        
+        displayView.signoutButton.addTarget(self, action: #selector(handleSignout), for: .touchUpInside)
+        
+        displayView.bodyStack.anchor(
             top: view.topAnchor,
             left: view.leftAnchor,
             right: view.rightAnchor,
             paddingTop: 100,
             paddingLeft: 10,
             paddingRight: 10)
-        headerStack.centerX(inView: view)
+        displayView.infoStack.centerX(inView: view)
         
-        signoutButton.anchor(
-            left: view.leftAnchor,
-            bottom: footerView.topAnchor,
-            right: view.rightAnchor,
-            paddingLeft: 12,
-            paddingBottom: 12,
-            paddingRight: 12,
-            height: 50)
-        
-        footerView.anchor(
+        displayView.footerView.anchor(
             bottom: view.bottomAnchor,
             width: 80,
             height: 30)
-        footerView.centerX(inView: view)
+        displayView.footerView.centerX(inView: view)
         
-        versionLabel.center(inView: footerView)
+        displayView.versionLabel.center(inView: displayView.footerView)
     }
 
-    public func attachSideMenu(rootVC: SideMenuViewController) {
+    public func attachSideMenu(_ rootVC: SideMenuViewController) {
         sideMenu = SideMenuNavController(rootViewController: rootVC)
         rootVC.delegate = self
     }
