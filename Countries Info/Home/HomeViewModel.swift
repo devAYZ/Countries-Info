@@ -7,13 +7,19 @@
 
 import Foundation
 
+protocol HomeView {
+    func networkCallSuccess(data: CountriesResponseList?)
+    func networkCallFailed(error: FError?)
+}
+
 class HomeViewModel {
     
     // MARK: Properties
-    private var networkClass: NetworkClassProtocol?
-    var networkCallSuccess: ((CountriesResponseList?) -> Void)?
-    var networkCallFailed: ((FError?) -> Void)?
+    var networkClass: NetworkClassProtocol?
+//    var networkCallSuccess: ((CountriesResponseList?) -> Void)?
+//    var networkCallFailed: ((FError?) -> Void)?
     var showLoading: ((Bool) -> Void)?
+    var view: HomeView?
 
     // MARK: Initialiser
     init(
@@ -22,15 +28,19 @@ class HomeViewModel {
         self.networkClass = networkClass
     }
     
+    func attachView(view: HomeView) {
+        self.view = view
+    }
+    
     func fetchCountryList() {
         showLoading?(true)
         networkClass?.makeNetworkCall_AF(urlString: .allCountries) { [self] (response: FResponse<CountriesResponseList, FError>) in
             showLoading?(false)
             switch response.result {
             case .success(let data):
-                networkCallSuccess?(data)
+                view?.networkCallSuccess(data: data)
             case .failure(let error):
-                networkCallFailed?(error)
+                view?.networkCallFailed(error: error)
             }
         }
     }

@@ -130,14 +130,7 @@ final class HomeViewController: BaseViewController {
     }
     
     private func handleAttachViewModel() {
-        viewModel?.networkCallSuccess = { [weak self] data in
-            self?.dataManager.allCountries = data
-            self?.setFilterData()
-        }
-        
-        viewModel?.networkCallFailed = { [weak self] error in
-            self?.showAlert(title: "Error", message: error?.localizedDescription, completion: nil)
-        }
+        viewModel?.attachView(view: self)
         
         viewModel?.showLoading = { [weak self] state in
             switch state {
@@ -208,4 +201,15 @@ extension HomeViewController: UISearchBarDelegate {
         displayView?.countryTableView.reloadData()
     }
     
+}
+
+extension HomeViewController: HomeView {
+    func networkCallSuccess(data: CountriesResponseList?) {
+        dataManager.allCountries = data
+        setFilterData()
+    }
+    
+    func networkCallFailed(error: FError?) {
+        showAlert(title: "Error", message: error?.localizedDescription, completion: nil)
+    }
 }

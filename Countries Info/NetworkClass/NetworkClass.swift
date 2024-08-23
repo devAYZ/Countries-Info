@@ -22,6 +22,12 @@ protocol NetworkClassProtocol {
         completion: @escaping (Result<T, NetworkError>) -> ())
 }
 
+extension NetworkClassProtocol {
+    func makeNetworkCall_Native<T: Decodable>(
+        urlString: Endpoint,
+        completion: @escaping (Result<T, NetworkError>) -> ()) {}
+}
+
 typealias FError = AFError
 typealias FResponse = DataResponse
 
