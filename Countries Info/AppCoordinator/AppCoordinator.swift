@@ -26,8 +26,8 @@ public class AppCoordinator: Coordinator {
     }
     
     public func start() {
-        navigationDirector()
-        //openHome()
+        //navigationDirector()
+        openHome()
     }
     
     func navigationDirector() {
@@ -49,6 +49,12 @@ public class AppCoordinator: Coordinator {
         vc.attachViews(.init())
         vc.attachSideMenu(.init())
         navigationController.pushViewController(vc, animated: animated)
+    }
+    
+    func openDetails() {
+        let vc = DetailsViewController()
+        vc.coordinator = self
+        navigationController.present(vc, animated: true)
     }
     
     func openSettings() {
