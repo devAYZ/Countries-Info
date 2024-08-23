@@ -19,6 +19,9 @@
 		0435E9062C77E1B200F0A472 /* SideMenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9052C77E1B200F0A472 /* SideMenuViewController.swift */; };
 		0435E9082C77FA7500F0A472 /* SideMenuTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9072C77FA7500F0A472 /* SideMenuTVCell.swift */; };
 		0435E90B2C7806F300F0A472 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E90A2C7806F300F0A472 /* SettingsViewController.swift */; };
+		0435E90D2C78A16E00F0A472 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E90C2C78A16E00F0A472 /* HomeModels.swift */; };
+		0435E9102C78A60D00F0A472 /* NetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E90F2C78A60D00F0A472 /* NetworkClass.swift */; };
+		0435E9122C78A72500F0A472 /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9112C78A72500F0A472 /* NetworkModels.swift */; };
 		B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E42C7880A200DF058D /* HomeViews.swift */; };
 		B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E62C78835600DF058D /* SettingsViews.swift */; };
 		B730E6EB2C788C1200DF058D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6EA2C788C1200DF058D /* DetailsViewController.swift */; };
@@ -74,6 +77,9 @@
 		0435E9052C77E1B200F0A472 /* SideMenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuViewController.swift; sourceTree = "<group>"; };
 		0435E9072C77FA7500F0A472 /* SideMenuTVCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideMenuTVCell.swift; sourceTree = "<group>"; };
 		0435E90A2C7806F300F0A472 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
+		0435E90C2C78A16E00F0A472 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
+		0435E90F2C78A60D00F0A472 /* NetworkClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClass.swift; sourceTree = "<group>"; };
+		0435E9112C78A72500F0A472 /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
 		B730E6E42C7880A200DF058D /* HomeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViews.swift; sourceTree = "<group>"; };
 		B730E6E62C78835600DF058D /* SettingsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViews.swift; sourceTree = "<group>"; };
 		B730E6EA2C788C1200DF058D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -143,6 +149,7 @@
 		040DF2EC2C762729007034C9 /* Countries Info */ = {
 			isa = PBXGroup;
 			children = (
+				0435E90E2C78A5AC00F0A472 /* NetworkClass */,
 				B730E6E82C788BCE00DF058D /* Details */,
 				B7A812332C7737B100E7EBC8 /* Home */,
 				0435E9092C7806CB00F0A472 /* Settings */,
@@ -204,6 +211,15 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		0435E90E2C78A5AC00F0A472 /* NetworkClass */ = {
+			isa = PBXGroup;
+			children = (
+				0435E90F2C78A60D00F0A472 /* NetworkClass.swift */,
+				0435E9112C78A72500F0A472 /* NetworkModels.swift */,
+			);
+			path = NetworkClass;
+			sourceTree = "<group>";
+		};
 		B730E6E82C788BCE00DF058D /* Details */ = {
 			isa = PBXGroup;
 			children = (
@@ -253,6 +269,7 @@
 				B7A812362C7737C900E7EBC8 /* HomeViewController.swift */,
 				B730E6E42C7880A200DF058D /* HomeViews.swift */,
 				B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */,
+				0435E90C2C78A16E00F0A472 /* HomeModels.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -416,9 +433,12 @@
 				0435E9002C77B9ED00F0A472 /* UIViewController + Extension.swift in Sources */,
 				B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */,
 				040DF2EE2C762729007034C9 /* AppDelegate.swift in Sources */,
+				0435E9102C78A60D00F0A472 /* NetworkClass.swift in Sources */,
+				0435E90D2C78A16E00F0A472 /* HomeModels.swift in Sources */,
 				0435E9082C77FA7500F0A472 /* SideMenuTVCell.swift in Sources */,
 				B7A8122C2C772C9900E7EBC8 /* DataManager.swift in Sources */,
 				B7A8123A2C77393500E7EBC8 /* UIView + Extension.swift in Sources */,
+				0435E9122C78A72500F0A472 /* NetworkModels.swift in Sources */,
 				B7A812262C772B4000E7EBC8 /* InterceptorViewController.swift in Sources */,
 				B7A8123C2C77398500E7EBC8 /* HomeTVCell.swift in Sources */,
 				B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */,

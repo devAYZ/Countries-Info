@@ -13,7 +13,7 @@ protocol DataManagerInjector {
 }
 
 enum DataManagerKeys: String {
-    case hasSeenOnboardingSlide
+    case allCountries
 }
 
 final class DataManager {
@@ -25,12 +25,17 @@ final class DataManager {
     // MARK: Properties (User default)
     fileprivate static let shared = DataManager()
     
-    var hasSeenOnboardingSlide: Bool {
+    var allCountries: CountriesResponseList? {
         get {
-            UserDefaults.standard.bool(forKey: DataManagerKeys.hasSeenOnboardingSlide.rawValue)
+            if let data = UserDefaults.standard.data(forKey: DataManagerKeys.allCountries.rawValue) {
+                return try? JSONDecoder().decode(CountriesResponseList.self, from: data)
+            }
+            return nil
         }
-        set (value){
-            UserDefaults.standard.setValue(value, forKey: DataManagerKeys.hasSeenOnboardingSlide.rawValue)
+        set(value){
+            if let encoded = try? JSONEncoder().encode(value) {
+                UserDefaults.standard.set(encoded, forKey: DataManagerKeys.allCountries.rawValue)
+            }
         }
     }
     

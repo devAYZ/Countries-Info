@@ -11,6 +11,7 @@ final class HomeViewController: BaseViewController {
 
     // MARK: Views
     private var displayView: HomeViews?
+    var networkClass = NetworkClass()
     
     override func basicSetup() {
         super.basicSetup()
@@ -19,6 +20,24 @@ final class HomeViewController: BaseViewController {
         setupViews()
         displayView?.countryTableView.dataSource = self
         displayView?.countryTableView.delegate = self
+        
+//        networkClass.makeNetworkCall(urlString: .allCountries) { (result: Result<CountriesResponseList, NetworkError>) in
+//            switch result {
+//            case .failure(let error):
+//                print(error)
+//            case .success(let data):
+//                print(data.count)
+//            }
+//        }
+        
+//        networkClass.makeNetworkCall_AF(urlString: .allCountries) { (response: FResponse<CountriesResponseList, FError>) in
+//            switch response.result {
+//            case .success(let data):
+//                self.dataManager.allCountries = data
+//            case .failure(let error):
+//                self.showAlert(title: "Error", message: error.localizedDescription, completion: nil)
+//            }
+//        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

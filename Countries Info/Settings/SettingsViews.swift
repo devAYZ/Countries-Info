@@ -51,7 +51,7 @@ final class SettingsViews: UIView {
         button.layer.cornerRadius = 5
         button.anchor(width: 200, height: 40)
         button.setTitleColor(.label, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 21)
+        button.titleLabel?.font = .systemFont(ofSize: 20, weight: .medium)
         return button
     }()
     
