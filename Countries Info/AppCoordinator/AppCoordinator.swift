@@ -56,6 +56,7 @@ public class AppCoordinator: Coordinator {
         let vc = DetailsViewController()
         vc.coordinator = self
         vc.countryData = selectedCountry
+        vc.attachViews(.init())
         navigationController.present(vc, animated: true)
     }
     

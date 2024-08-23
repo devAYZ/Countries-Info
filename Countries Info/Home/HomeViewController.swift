@@ -11,6 +11,8 @@ final class HomeViewController: BaseViewController {
 
     // MARK: Views
     private var displayView: HomeViews?
+    
+    // MARK: View Model
     private var viewModel: HomeViewModel?
     
     // MARK: Properties

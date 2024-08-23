@@ -10,37 +10,7 @@ import UIKit
 final class DetailsViewController: BaseViewController {
     
     // MARK: Views
-    lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.alpha = .pointTwo
-        imageView.clipsToBounds = true
-        return imageView
-    }()
-    
-    lazy var logoImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.contentMode = .scaleAspectFit
-        imageView.anchor(width: 140, height: 120)
-        imageView.layer.cornerRadius = 20
-        imageView.layer.borderColor = .init(
-            red: .zero, green: .zero, blue: .zero, alpha: 0.8)
-        imageView.layer.borderWidth = 8
-        imageView.clipsToBounds = true
-        imageView.backgroundColor = .systemBackground.withAlphaComponent(0.9)
-        return imageView
-    }()
-    
-    lazy var topView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground
-        return view
-    }()
-    
-    lazy var downView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemOrange
-        return view
-    }()
+    private var displayView: DetailsViews?
     
     // MARK: Properties
     var countryData: CountriesResponse?
@@ -50,38 +20,35 @@ final class DetailsViewController: BaseViewController {
         
         setupViews()
         
-//        countryLabel.text = data?.name?.official
-//        cityLabel.text = data?.capital?.first
-//        currencyLabel.text = data?.currencies?.first?.value.symbol
-//        iconImageView.loadImage(from: data?.flags?.png)
-        [backgroundImageView, logoImageView
-        ].forEach { $0.loadImage(from: countryData?.flags?.png) }
+        [displayView?.backgroundImageView, displayView?.logoImageView
+        ].forEach { $0?.loadImage(from: countryData?.flags?.png) }
+        displayView?.topLabel.text = countryData?.name?.official
+        
+        displayView?.countryNameValue.text = countryData?.name?.official
+        displayView?.capitalNameValue.text = countryData?.capital?.first
+        displayView?.currencyNameValue.text = countryData?.currencies?.first?.value.name
+        displayView?.currencySignValue.text = countryData?.currencies?.first?.value.symbol
+        displayView?.countryFlagValue.text = countryData?.flag
+    }
+    
+    func attachViews(_ displayView: DetailsViews) {
+        self.displayView = displayView
     }
     
     private func setupViews() {
         view.backgroundColor = .systemBackground
+        guard let displayView = displayView else { return }
         
-        topView.addSubviews(backgroundImageView, logoImageView)
+        view.addSubviews(displayView.topView, displayView.downView)
         
-        view.addSubviews(topView,
-                         downView)
-        
-        backgroundImageView.anchor(
-            top: topView.topAnchor,
-            left: topView.leftAnchor,
-            bottom: topView.bottomAnchor,
-            right: topView.rightAnchor)
-        
-        logoImageView.center(inView: topView)
-        
-        topView.anchor(
+        displayView.topView.anchor(
             top: view.topAnchor,
             left: view.leftAnchor,
-            bottom: downView.topAnchor,
+            bottom: displayView.downView.topAnchor,
             right: view.rightAnchor,
             height: view.frame.height / 3.5)
         
-        downView.anchor(
+        displayView.downView.anchor(
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor)
