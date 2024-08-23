@@ -16,4 +16,12 @@ extension UIImageView {
         }
         self.kf.setImage(with: url, placeholder: UIImage(named: "dummy"))
     }
+    
+    func loadImage(from url: URL?) {
+        guard let url = url else {
+            self.image = .init(named: "dummy")
+            return
+        }
+        self.kf.setImage(with: url, placeholder: UIImage(named: "dummy"))
+    }
 }

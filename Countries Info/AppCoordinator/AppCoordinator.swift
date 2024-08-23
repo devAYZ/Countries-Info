@@ -26,7 +26,8 @@ public class AppCoordinator: Coordinator {
     }
     
     public func start() {
-        navigationDirector()
+        //navigationDirector()
+        openHome()
     }
     
     func navigationDirector() {
@@ -35,10 +36,10 @@ public class AppCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: false)
     }
     
-    func openSignin() {
+    func openSignin(animated: Bool = true) {
         let vc = SignInViewController()
         vc.coordinator = self
-        navigationController.pushViewController(vc, animated: false)
+        navigationController.pushViewController(vc, animated: animated)
     }
     
     func openHome(animated: Bool = true) {
@@ -46,6 +47,13 @@ public class AppCoordinator: Coordinator {
         vc.coordinator = self
         vc.attachSideMenu(rootVC: .init())
         navigationController.pushViewController(vc, animated: animated)
+    }
+    
+    func openSettings() {
+        let vc = SettingsViewController()
+        vc.coordinator = self
+        vc.attachSideMenu(rootVC: .init())
+        navigationController.pushViewController(vc, animated: true)
     }
     
 }

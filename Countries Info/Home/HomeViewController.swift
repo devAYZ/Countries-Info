@@ -18,19 +18,45 @@ final class HomeViewController: BaseViewController {
         tableView.showsVerticalScrollIndicator = false
         return tableView
     }()
+    
+    // MARK: Views
+    private lazy var sideMenuButton: UIButton = {
+        let button = UIButton()
+        button.anchor(width: 30, height: 30)
+        button.setImage(.init(named: "side-menu-icon"), for: .normal)
+        button.addTarget(self, action: #selector(handleSideMenu), for: .touchUpInside)
+        button.backgroundColor = .systemGreen.withAlphaComponent(0.2)
+        button.layer.cornerRadius = 5
+        return button
+    }()
+    
+    lazy var topLabel: UILabel = {
+        let label = UILabel()
+        label.textColor = .label
+        label.font = .systemFont(ofSize: 25, weight: .semibold)
+        label.text = "Favourite Countries List"
+        label.textAlignment = .center
+        label.textColor = .label
+        return label
+    }()
+    
+    lazy var headerStack: UIStackView = {
+        let stackView = UIStackView(arrangedSubviews: [
+            sideMenuButton, topLabel
+        ])
+        stackView.axis = .horizontal
+        stackView.alignment = .center
+        stackView.distribution = .fill
+        return stackView
+    }()
 
     override func basicSetup() {
         super.basicSetup()
         //
         setupSideMenu()
-        view.backgroundColor = .systemBackground
+        setupViews()
         countryTableView.dataSource = self
         countryTableView.delegate = self
-    }
-    
-    override func loadView() {
-        super.loadView()
-        view = countryTableView
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -41,6 +67,27 @@ final class HomeViewController: BaseViewController {
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         navigationController?.setNavigationBarHidden(false, animated: true)
+    }
+    
+    private func setupViews() {
+        view.backgroundColor = .systemBackground
+        view.addSubviews(headerStack, countryTableView)
+        
+        headerStack.anchor(
+            top: view.safeAreaLayoutGuide.topAnchor,
+            left: view.leftAnchor,
+            bottom: countryTableView.topAnchor,
+            right: view.rightAnchor,
+            paddingTop: 5,
+            paddingLeft: 5,
+            paddingRight: 5)
+        
+        countryTableView.anchor(
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor,
+            paddingLeft: 5,
+            paddingRight: 5)
     }
     
     public func attachSideMenu(rootVC: SideMenuViewController) {
@@ -67,7 +114,6 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        handleSideMenu()
     }
     
 }

@@ -13,8 +13,8 @@ struct SideMenuList {
     
     static func menuList() -> [SideMenuList] {
         let menu: [SideMenuList] = [
-            SideMenuList(menuTitle: "Home", menuImage: UIImage(named: "")),
-            SideMenuList(menuTitle: "Settings", menuImage: UIImage(named: "")),
+            SideMenuList(menuTitle: "Home", menuImage: UIImage(named: "home-menu")),
+            SideMenuList(menuTitle: "Settings", menuImage: UIImage(named: "settings-menu")),
         ]
         return menu
     }

@@ -1,15 +1,15 @@
 //
-//  HomeTVCell.swift
+//  SideMenuTVCell.swift
 //  Countries Info
 //
-//  Created by Ayokunle Fatokimi on 22/08/2024.
+//  Created by Ayokunle Pro on 8/23/24.
 //
 
 import UIKit
 
-final class HomeTVCell: UITableViewCell {
-    
-    private lazy var iconImageView: UIImageView = {
+class SideMenuTVCell: UITableViewCell {
+
+    private lazy var menuImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
         imageView.anchor(width: 40, height: 40)
@@ -18,57 +18,26 @@ final class HomeTVCell: UITableViewCell {
         return imageView
     }()
     
-    lazy var countryLabel: UILabel = {
+    lazy var menuLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
-        label.text = "Nigeria"
-        return label
-    }()
-    
-    lazy var cityLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.text = "Lagos"
-        label.textColor = .secondaryLabel
+        label.font = .systemFont(ofSize: 16, weight: .medium)
         return label
     }()
 
     lazy var labelStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            countryLabel, cityLabel
+            menuLabel
         ])
         stackView.axis = .vertical
         stackView.alignment = .fill
         stackView.distribution = .fill
         return stackView
     }()
-    
-    lazy var currencyLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 16, weight: .semibold)
-        label.textAlignment = .right
-        label.text = "$"
-        label.textColor = .systemGreen
-        return label
-    }()
-    
-    private lazy var arrowImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = .init(systemName: "chevron.forward")
-        imageView.contentMode = .center
-        imageView.anchor(width: 24, height: 16)
-        imageView.clipsToBounds = true
-        imageView.tintColor = .label
-        return imageView
-    }()
 
     lazy var bodyStack: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            iconImageView, labelStack,
-            currencyLabel, arrowImageView
+            menuImageView, labelStack
         ])
         stackView.axis = .horizontal
         stackView.alignment = .center
@@ -95,7 +64,6 @@ final class HomeTVCell: UITableViewCell {
 
     private func setupLayout() {
         contentView.addSubview(bodyStack)
-        iconImageView.loadImage(from: "https://picsum.photos/200")
         bodyStack.anchor(top: contentView.topAnchor,
                          left: contentView.leftAnchor,
                          bottom: contentView.bottomAnchor,
@@ -105,4 +73,10 @@ final class HomeTVCell: UITableViewCell {
                          paddingBottom: 10,
                          paddingRight: 10)
     }
+    
+    func setupCell(list: SideMenuList) {
+        menuLabel.text = list.menuTitle
+        menuImageView.image = list.menuImage
+    }
+
 }

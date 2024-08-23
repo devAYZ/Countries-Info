@@ -35,6 +35,11 @@ final class DataManager {
     }
     
     var userProfile: GIDProfileData?
+    
+    func logOut() {
+        userProfile = nil
+        GIDSignIn.sharedInstance.signOut()
+    }
 }
 
 extension DataManagerInjector {

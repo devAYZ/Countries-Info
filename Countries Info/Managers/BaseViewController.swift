@@ -42,12 +42,12 @@ class BaseViewController: UIViewController, DataManagerInjector {
         if selectedMenu == currentMenu {
             sideMenu?.dismiss(animated: true)
         } else {
-            sideMenu?.dismiss(animated: false, completion: {
+            sideMenu?.dismiss(animated: false, completion: { [self] in
                 switch selectedMenu {
                 case .home:
-                    break
+                    coordinator?.openHome()
                 case .settings:
-                    break
+                    coordinator?.openSettings()
                 }
             })
         }

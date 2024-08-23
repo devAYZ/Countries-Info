@@ -1,21 +1,14 @@
 //
-//  SideMenuViewController.swift
+//  SettingsViewController.swift
 //  Countries Info
 //
-//  Created by Ayokunle Pro on 8/22/24.
+//  Created by Ayokunle Pro on 8/23/24.
 //
 
-import SideMenu
 import UIKit
 
-typealias SideMenuNavController = SideMenuNavigationController
+final class SettingsViewController: BaseViewController {
 
-protocol SideMenuDisplay {
-    func didSelectMenu(menu: SideMenuOptions)
-}
-
-final class SideMenuViewController: BaseViewController {
-    
     // MARK: Views
     private lazy var iconImageView: UIImageView = {
         let imageView = UIImageView()
@@ -51,12 +44,13 @@ final class SideMenuViewController: BaseViewController {
         return stackView
     }()
     
-    lazy var menuTableView: UITableView = {
-        let tableView = UITableView()
-        tableView.register(SideMenuTVCell.self, forCellReuseIdentifier: "\(SideMenuTVCell.self)")
-        tableView.rowHeight = 60
-        tableView.separatorStyle = .none
-        return tableView
+    private lazy var signoutButton: UIButton = {
+        let button = UIButton()
+        button.setTitle("Sign out", for: .normal)
+        button.addTarget(self, action: #selector(handleSignout), for: .touchUpInside)
+        button.backgroundColor = .systemRed.withAlphaComponent(0.5)
+        button.layer.cornerRadius = 5
+        return button
     }()
     
     private lazy var footerView: UIView = {
@@ -73,46 +67,47 @@ final class SideMenuViewController: BaseViewController {
         label.text = "v1.0.0"
         return label
     }()
-
-    // MARK: Properties
-    public var delegate: SideMenuDisplay?
-    private var menuList = SideMenuList.menuList()
     
     override func basicSetup() {
         super.basicSetup()
-        
         setupViews()
-        setupTableView()
+        setupSideMenu()
         
         nameLabel.text = dataManager.userProfile?.name
         emailLabel.text = dataManager.userProfile?.email
         iconImageView.loadImage(from: dataManager.userProfile?.imageURL(withDimension: 200))
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "side-menu-icon"), style: .plain,
+            target: self, action: #selector(handleSideMenu))
+    }
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(headerStack, menuTableView, footerView)
+        view.addSubviews(headerStack, signoutButton, footerView)
         
         footerView.addSubview(versionLabel)
         
         headerStack.anchor(
             top: view.topAnchor,
             left: view.leftAnchor,
-            bottom: menuTableView.topAnchor,
             right: view.rightAnchor,
             paddingTop: 100,
             paddingLeft: 10,
-            paddingBottom: 20,
             paddingRight: 10)
         headerStack.centerX(inView: view)
         
-        menuTableView.anchor(
+        signoutButton.anchor(
             left: view.leftAnchor,
-            bottom: view.bottomAnchor,
+            bottom: footerView.topAnchor,
             right: view.rightAnchor,
-            paddingLeft: 10,
-            paddingBottom: 10,
-            paddingRight: 10)
+            paddingLeft: 12,
+            paddingBottom: 12,
+            paddingRight: 12,
+            height: 50)
         
         footerView.anchor(
             bottom: view.bottomAnchor,
@@ -123,26 +118,21 @@ final class SideMenuViewController: BaseViewController {
         versionLabel.center(inView: footerView)
     }
 
-    func setupTableView() {
-        menuTableView.delegate = self
-        menuTableView.dataSource = self
-        menuTableView.tableFooterView = UIView()
+    public func attachSideMenu(rootVC: SideMenuViewController) {
+        sideMenu = SideMenuNavController(rootViewController: rootVC)
+        rootVC.delegate = self
+    }
+    
+    @objc public func handleSignout() {
+        showAlert(title: "Are you sure?") { [unowned self] in
+            dataManager.logOut()
+            coordinator?.openSignin(animated: false)
+        }
     }
 }
 
-extension SideMenuViewController: UITableViewDelegate, UITableViewDataSource {
-    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        menuList.count
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(SideMenuTVCell.self)", for: indexPath) as! SideMenuTVCell
-        cell.setupCell(list: menuList[indexPath.row])
-        return cell
-    }
-    
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: true)
-        delegate?.didSelectMenu(menu: .init(rawValue: menuList[indexPath.row].menuTitle.lowercased()) ?? .home)
+extension SettingsViewController: SideMenuDisplay {
+    func didSelectMenu(menu: SideMenuOptions) {
+        switchSideMenuSelected(selectedMenu: menu, currentMenu: .settings)
     }
 }
