@@ -26,8 +26,8 @@ public class AppCoordinator: Coordinator {
     }
     
     public func start() {
-        //navigationDirector()
-        openHome()
+        navigationDirector()
+        //openHome()
     }
     
     func navigationDirector() {
@@ -39,6 +39,7 @@ public class AppCoordinator: Coordinator {
     func openSignin(animated: Bool = true) {
         let vc = SignInViewController()
         vc.coordinator = self
+        vc.attachViews(.init())
         navigationController.pushViewController(vc, animated: animated)
     }
     

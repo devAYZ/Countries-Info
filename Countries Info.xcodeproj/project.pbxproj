@@ -21,6 +21,8 @@
 		0435E90B2C7806F300F0A472 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E90A2C7806F300F0A472 /* SettingsViewController.swift */; };
 		B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E42C7880A200DF058D /* HomeViews.swift */; };
 		B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E62C78835600DF058D /* SettingsViews.swift */; };
+		B730E6EB2C788C1200DF058D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6EA2C788C1200DF058D /* DetailsViewController.swift */; };
+		B730E6ED2C788CAE00DF058D /* SignInViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6EC2C788CAE00DF058D /* SignInViews.swift */; };
 		B7A812172C77289A00E7EBC8 /* SideMenu in Frameworks */ = {isa = PBXBuildFile; productRef = B7A812162C77289A00E7EBC8 /* SideMenu */; };
 		B7A8121A2C77291A00E7EBC8 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B7A812192C77291A00E7EBC8 /* GoogleSignIn */; };
 		B7A8121D2C77298300E7EBC8 /* AlamofireDynamic in Frameworks */ = {isa = PBXBuildFile; productRef = B7A8121C2C77298300E7EBC8 /* AlamofireDynamic */; };
@@ -74,6 +76,8 @@
 		0435E90A2C7806F300F0A472 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B730E6E42C7880A200DF058D /* HomeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViews.swift; sourceTree = "<group>"; };
 		B730E6E62C78835600DF058D /* SettingsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViews.swift; sourceTree = "<group>"; };
+		B730E6EA2C788C1200DF058D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
+		B730E6EC2C788CAE00DF058D /* SignInViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignInViews.swift; sourceTree = "<group>"; };
 		B7A812222C772B0B00E7EBC8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
 		B7A812252C772B4000E7EBC8 /* InterceptorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorViewController.swift; sourceTree = "<group>"; };
 		B7A812282C772C1600E7EBC8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
@@ -139,9 +143,10 @@
 		040DF2EC2C762729007034C9 /* Countries Info */ = {
 			isa = PBXGroup;
 			children = (
+				B730E6E82C788BCE00DF058D /* Details */,
+				B7A812332C7737B100E7EBC8 /* Home */,
 				0435E9092C7806CB00F0A472 /* Settings */,
 				0435E9042C77E19600F0A472 /* SideMenu */,
-				B7A812332C7737B100E7EBC8 /* Home */,
 				B7A812302C77370500E7EBC8 /* SignInViewController */,
 				B7A812242C772B2600E7EBC8 /* InterceptorViewController */,
 				B7A812212C772AE300E7EBC8 /* AppCoordinator */,
@@ -199,6 +204,14 @@
 			path = Settings;
 			sourceTree = "<group>";
 		};
+		B730E6E82C788BCE00DF058D /* Details */ = {
+			isa = PBXGroup;
+			children = (
+				B730E6EA2C788C1200DF058D /* DetailsViewController.swift */,
+			);
+			path = Details;
+			sourceTree = "<group>";
+		};
 		B7A812212C772AE300E7EBC8 /* AppCoordinator */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +242,7 @@
 			isa = PBXGroup;
 			children = (
 				B7A812312C77372200E7EBC8 /* SignInViewController.swift */,
+				B730E6EC2C788CAE00DF058D /* SignInViews.swift */,
 			);
 			path = SignInViewController;
 			sourceTree = "<group>";
@@ -408,12 +422,14 @@
 				B7A812262C772B4000E7EBC8 /* InterceptorViewController.swift in Sources */,
 				B7A8123C2C77398500E7EBC8 /* HomeTVCell.swift in Sources */,
 				B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */,
+				B730E6EB2C788C1200DF058D /* DetailsViewController.swift in Sources */,
 				B7A812322C77372200E7EBC8 /* SignInViewController.swift in Sources */,
 				B7A8122F2C772D7400E7EBC8 /* ManagerModels.swift in Sources */,
 				B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */,
 				040DF2F02C762729007034C9 /* SceneDelegate.swift in Sources */,
 				0435E9022C77C1C500F0A472 /* UIImageView + Extension.swift in Sources */,
 				B7A812402C77499100E7EBC8 /* Int + Extension.swift in Sources */,
+				B730E6ED2C788CAE00DF058D /* SignInViews.swift in Sources */,
 				B7A812292C772C1600E7EBC8 /* BaseViewController.swift in Sources */,
 				B7A8123E2C773FB300E7EBC8 /* CGFloat + Extension.swift in Sources */,
 				0435E90B2C7806F300F0A472 /* SettingsViewController.swift in Sources */,

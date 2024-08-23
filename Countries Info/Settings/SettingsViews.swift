@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SettingsViews: UIView {
+final class SettingsViews: UIView {
     
     // MARK: Views
     lazy var iconImageView: UIImageView = {

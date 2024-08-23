@@ -11,63 +11,7 @@ import UIKit
 final class SignInViewController: BaseViewController {
     
     // MARK: Views
-    private lazy var backgroundImageView: UIImageView = {
-        let imageView = UIImageView()
-        imageView.image = .init(named: "Sweden-transparent")
-        imageView.contentMode = .center
-        imageView.alpha = .pointOne
-        return imageView
-    }()
-    
-    private lazy var signinButton: GIDSignInButton = {
-        let button = GIDSignInButton()
-        button.anchor(height: 60)
-        button.style = .wide
-        button.addTarget(self, action: #selector(handleSignin), for: .touchUpInside)
-        return button
-    }()
-    
-    lazy var welcomeLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .systemGreen
-        label.font = .systemFont(ofSize: 40, weight: .bold)
-        label.textAlignment = .center
-        label.text = "Welcome"
-        return label
-    }()
-    
-    lazy var countryInfoLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 20, weight: .medium)
-        label.textAlignment = .center
-        label.text = "Sign in to search and display details of your favourite country"
-        label.numberOfLines = .two
-        return label
-    }()
-    
-    lazy var labelStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            welcomeLabel, countryInfoLabel
-        ])
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = 2
-        return stackView
-    }()
-
-    lazy var bodyStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            labelStack,
-            signinButton
-        ])
-        stackView.axis = .vertical
-        stackView.alignment = .center
-        stackView.distribution = .equalSpacing
-        stackView.spacing = 50
-        return stackView
-    }()
+    private var displayView: SignInViews?
 
     override func basicSetup() {
         super.basicSetup()
@@ -85,21 +29,33 @@ final class SignInViewController: BaseViewController {
         navigationController?.setNavigationBarHidden(false, animated: true)
     }
     
+    func attachViews(_ displayView: SignInViews) {
+        self.displayView = displayView
+    }
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
-        view.addSubviews(backgroundImageView, bodyStack)
+        guard let displayView = displayView else { return }
         
-        backgroundImageView.anchor(top: view.topAnchor,
-                                   left: view.leftAnchor,
-                                   bottom: view.bottomAnchor,
-                                   right: view.rightAnchor)
+        view.addSubviews(displayView.backgroundImageView, displayView.bodyStack)
         
-        view.addSubview(bodyStack)
-        bodyStack.centerY(inView: view)
-        bodyStack.anchor(left: view.leftAnchor,
-                         right: view.rightAnchor,
-                         paddingLeft: 12,
-                         paddingRight: 12)
+        displayView.signinButton.addTarget(
+            self,
+            action: #selector(handleSignin),
+            for: .touchUpInside)
+        
+        displayView.backgroundImageView.anchor(
+            top: view.topAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor)
+        
+        displayView.bodyStack.centerY(inView: view)
+        displayView.bodyStack.anchor(
+            left: view.leftAnchor,
+            right: view.rightAnchor,
+            paddingLeft: 12,
+            paddingRight: 12)
         
     }
     

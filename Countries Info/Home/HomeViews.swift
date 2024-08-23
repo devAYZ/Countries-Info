@@ -7,7 +7,7 @@
 
 import UIKit
 
-class HomeViews: UIView {
+final class HomeViews: UIView {
 
     // MARK: Views
     lazy var countryTableView: UITableView = {
