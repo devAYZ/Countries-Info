@@ -13,6 +13,13 @@ final class HomeViewController: BaseViewController {
     private var displayView: HomeViews?
     var networkClass = NetworkClass()
     
+    // MARK: Properties
+    private var filteredAllCountries: CountriesResponseList? {
+        didSet {
+            displayView?.countryTableView.reloadData()
+        }
+    }
+    
     override func basicSetup() {
         super.basicSetup()
         //
@@ -38,6 +45,11 @@ final class HomeViewController: BaseViewController {
 //                self.showAlert(title: "Error", message: error.localizedDescription, completion: nil)
 //            }
 //        }
+        
+        filteredAllCountries = dataManager.allCountries
+        filteredAllCountries?.isEmpty ?? true ?
+        (displayView?.emptyView.isHidden = false) :
+        (displayView?.emptyView.isHidden = true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -58,7 +70,8 @@ final class HomeViewController: BaseViewController {
         view.backgroundColor = .systemBackground
         guard let displayView = displayView else { return }
         
-        view.addSubviews(displayView.headerStack, 
+        view.addSubviews(displayView.headerStack,
+                         displayView.searchBar,
                          displayView.countryTableView,
                          displayView.emptyView)
         
@@ -77,12 +90,21 @@ final class HomeViewController: BaseViewController {
             action: #selector(handleTryAgain),
             for: .touchUpInside)
         
+        displayView.searchBar.delegate = self
+        
         displayView.headerStack.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
             left: view.leftAnchor,
-            bottom: displayView.countryTableView.topAnchor,
+            bottom: displayView.searchBar.topAnchor,
             right: view.rightAnchor,
             paddingTop: 5,
+            paddingLeft: 5,
+            paddingRight: 5)
+        
+        displayView.searchBar.anchor(
+            left: view.leftAnchor,
+            bottom: displayView.countryTableView.topAnchor,
+            right: view.rightAnchor,
             paddingLeft: 5,
             paddingRight: 5)
         
@@ -138,6 +160,27 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         coordinator?.openDetails()
+    }
+}
+
+
+extension HomeViewController: UISearchBarDelegate {
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        searchBar.endEditing(true)
+    }
+    
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        if searchText.isEmpty {
+            filteredAllCountries = dataManager.allCountries
+            return
+        } else {
+            filteredAllCountries = dataManager.allCountries?.filter({ obj -> Bool in
+                return obj.name?.official?.lowercased().contains(searchText.lowercased()) ?? false ||
+                obj.name?.common?.lowercased().contains(searchText.lowercased()) ?? false ||
+                obj.currencies?.first?.value.name?.lowercased().contains(searchText.lowercased()) ?? false ||
+                obj.capital?.first?.lowercased().contains(searchText.lowercased()) ?? false
+            })
+        }
     }
     
 }

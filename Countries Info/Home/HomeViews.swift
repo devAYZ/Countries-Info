@@ -21,6 +21,11 @@ final class HomeViews: UIView {
         return tableView
     }()
     
+    lazy var searchBar: UISearchBar = {
+        let searchBar = UISearchBar()
+        return searchBar
+    }()
+    
     lazy var sideMenuButton: UIButton = {
         let button = UIButton()
         button.anchor(width: 35, height: 35)
