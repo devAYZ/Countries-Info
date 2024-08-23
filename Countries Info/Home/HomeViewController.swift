@@ -39,11 +39,18 @@ final class HomeViewController: BaseViewController {
         view.backgroundColor = .systemBackground
         guard let displayView = displayView else { return }
         
-        view.addSubviews(displayView.headerStack, displayView.countryTableView)
+        view.addSubviews(displayView.headerStack, 
+                         displayView.countryTableView,
+                         displayView.emptyView)
         
         displayView.sideMenuButton.addTarget(
             self,
             action: #selector(handleSideMenu),
+            for: .touchUpInside)
+        
+        displayView.tryAgainButton.addTarget(
+            self,
+            action: #selector(handleTryAgain),
             for: .touchUpInside)
         
         displayView.headerStack.anchor(
@@ -61,11 +68,21 @@ final class HomeViewController: BaseViewController {
             right: view.rightAnchor,
             paddingLeft: 5,
             paddingRight: 5)
+        
+        displayView.emptyView.anchor(
+            top: displayView.headerStack.bottomAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor)
     }
     
-    public func attachSideMenu(_ rootVC: SideMenuViewController) {
+    func attachSideMenu(_ rootVC: SideMenuViewController) {
         sideMenu = SideMenuNavController(rootViewController: rootVC)
         rootVC.delegate = self
+    }
+    
+    @objc private func handleTryAgain() {
+        print("try Again")
     }
 }
 
