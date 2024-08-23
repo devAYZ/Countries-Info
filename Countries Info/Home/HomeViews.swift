@@ -18,11 +18,14 @@ final class HomeViews: UIView {
         tableView.showsVerticalScrollIndicator = false
         tableView.refreshControl = UIRefreshControl()
         tableView.refreshControl?.tintColor = .systemGreen
+        tableView.keyboardDismissMode = .onDrag
         return tableView
     }()
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
+        searchBar.searchTextField.font = .systemFont(ofSize: 20, weight: .semibold)
+        searchBar.placeholder = "Search... Name, Capital, Currency"
         return searchBar
     }()
     

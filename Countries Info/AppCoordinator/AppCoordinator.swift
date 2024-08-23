@@ -51,9 +51,10 @@ public class AppCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: animated)
     }
     
-    func openDetails() {
+    func openDetails(selectedCountry: CountriesResponse? = nil) {
         let vc = DetailsViewController()
         vc.coordinator = self
+        vc.countryData = selectedCountry
         navigationController.present(vc, animated: true)
     }
     

@@ -20,13 +20,13 @@ final class HomeViewController: BaseViewController {
         }
     }
     
+    var tempData: CountriesResponseList?
+    
     override func basicSetup() {
         super.basicSetup()
         //
         setupSideMenu()
         setupViews()
-        displayView?.countryTableView.dataSource = self
-        displayView?.countryTableView.delegate = self
         
 //        networkClass.makeNetworkCall(urlString: .allCountries) { (result: Result<CountriesResponseList, NetworkError>) in
 //            switch result {
@@ -41,15 +41,13 @@ final class HomeViewController: BaseViewController {
 //            switch response.result {
 //            case .success(let data):
 //                self.dataManager.allCountries = data
+//                self.setFilterData()
 //            case .failure(let error):
 //                self.showAlert(title: "Error", message: error.localizedDescription, completion: nil)
 //            }
 //        }
         
-        filteredAllCountries = dataManager.allCountries
-        filteredAllCountries?.isEmpty ?? true ?
-        (displayView?.emptyView.isHidden = false) :
-        (displayView?.emptyView.isHidden = true)
+        setFilterData()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -70,6 +68,10 @@ final class HomeViewController: BaseViewController {
         view.backgroundColor = .systemBackground
         guard let displayView = displayView else { return }
         
+        displayView.countryTableView.dataSource = self
+        displayView.countryTableView.delegate = self
+        displayView.searchBar.delegate = self
+        
         view.addSubviews(displayView.headerStack,
                          displayView.searchBar,
                          displayView.countryTableView,
@@ -89,8 +91,6 @@ final class HomeViewController: BaseViewController {
             self,
             action: #selector(handleTryAgain),
             for: .touchUpInside)
-        
-        displayView.searchBar.delegate = self
         
         displayView.headerStack.anchor(
             top: view.safeAreaLayoutGuide.topAnchor,
@@ -138,6 +138,14 @@ final class HomeViewController: BaseViewController {
     @objc private func handleTryAgain() {
         print("try Again")
     }
+    
+    private func setFilterData() {
+        filteredAllCountries = dataManager.allCountries
+        filteredAllCountries?.isEmpty ?? true ?
+        (displayView?.emptyView.isHidden = false) :
+        (displayView?.emptyView.isHidden = true)
+        tempData = filteredAllCountries
+    }
 }
 
 extension HomeViewController: SideMenuDisplay {
@@ -148,7 +156,7 @@ extension HomeViewController: SideMenuDisplay {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataManager.allCountries?.prefix(20).count ?? 1
+        dataManager.allCountries?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -159,7 +167,7 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        coordinator?.openDetails()
+        coordinator?.openDetails(selectedCountry: dataManager.allCountries?[indexPath.row])
     }
 }
 
@@ -174,13 +182,14 @@ extension HomeViewController: UISearchBarDelegate {
             filteredAllCountries = dataManager.allCountries
             return
         } else {
-            filteredAllCountries = dataManager.allCountries?.filter({ obj -> Bool in
+            filteredAllCountries = tempData?.filter({ obj -> Bool in
                 return obj.name?.official?.lowercased().contains(searchText.lowercased()) ?? false ||
                 obj.name?.common?.lowercased().contains(searchText.lowercased()) ?? false ||
                 obj.currencies?.first?.value.name?.lowercased().contains(searchText.lowercased()) ?? false ||
                 obj.capital?.first?.lowercased().contains(searchText.lowercased()) ?? false
             })
         }
+        displayView?.countryTableView.reloadData()
     }
     
 }

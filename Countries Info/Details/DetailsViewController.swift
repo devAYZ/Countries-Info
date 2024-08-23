@@ -12,20 +12,21 @@ final class DetailsViewController: BaseViewController {
     // MARK: Views
     lazy var backgroundImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .init(named: "Sweden-transparent")
         imageView.alpha = .pointTwo
+        imageView.clipsToBounds = true
         return imageView
     }()
     
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
-        imageView.image = .init(named: "Sweden-transparent")
         imageView.contentMode = .scaleAspectFit
-        imageView.anchor(width: 140, height: 140)
-        imageView.layer.cornerRadius = 70
+        imageView.anchor(width: 140, height: 120)
+        imageView.layer.cornerRadius = 20
         imageView.layer.borderColor = .init(
-            red: .zero, green: 1, blue: .zero, alpha: 0.5)
-        imageView.layer.borderWidth = 3
+            red: .zero, green: .zero, blue: .zero, alpha: 0.8)
+        imageView.layer.borderWidth = 8
+        imageView.clipsToBounds = true
+        imageView.backgroundColor = .systemBackground.withAlphaComponent(0.9)
         return imageView
     }()
     
@@ -40,11 +41,21 @@ final class DetailsViewController: BaseViewController {
         view.backgroundColor = .systemOrange
         return view
     }()
+    
+    // MARK: Properties
+    var countryData: CountriesResponse?
 
     override func basicSetup() {
         super.basicSetup()
         
         setupViews()
+        
+//        countryLabel.text = data?.name?.official
+//        cityLabel.text = data?.capital?.first
+//        currencyLabel.text = data?.currencies?.first?.value.symbol
+//        iconImageView.loadImage(from: data?.flags?.png)
+        [backgroundImageView, logoImageView
+        ].forEach { $0.loadImage(from: countryData?.flags?.png) }
     }
     
     private func setupViews() {
