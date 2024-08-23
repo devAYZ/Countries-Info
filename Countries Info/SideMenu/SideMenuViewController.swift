@@ -22,6 +22,9 @@ final class SideMenuViewController: BaseViewController {
         imageView.contentMode = .scaleAspectFit
         imageView.anchor(width: 70, height: 70)
         imageView.layer.cornerRadius = 35
+        imageView.layer.borderColor = .init(
+            red: .zero, green: 100, blue: .zero, alpha: 0.5)
+        imageView.layer.borderWidth = 3
         imageView.clipsToBounds = true
         return imageView
     }()
