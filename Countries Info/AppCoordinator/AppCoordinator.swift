@@ -48,6 +48,7 @@ public class AppCoordinator: Coordinator {
         vc.coordinator = self
         vc.attachViews(.init())
         vc.attachSideMenu(.init())
+        vc.attachViewModel(.init())
         navigationController.pushViewController(vc, animated: animated)
     }
     

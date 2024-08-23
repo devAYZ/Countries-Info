@@ -102,6 +102,14 @@ final class HomeViews: UIView {
         return view
     }()
     
+    lazy var loader: UIActivityIndicatorView = {
+        let view = UIActivityIndicatorView()
+        view.backgroundColor = .systemBackground
+        view.style = .large
+        view.color = .systemGreen
+        return view
+    }()
+    
     // MARK: Init
     override init(frame: CGRect) {
         super.init(frame: frame)

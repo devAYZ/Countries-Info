@@ -48,7 +48,7 @@ struct Car: Codable {
     var side: String?
 }
 
-// MARK: - CoatOfArms
+// MARK: CoatOfArms
 struct CoatOfArms: Codable {
     var png: String?
     var svg: String?

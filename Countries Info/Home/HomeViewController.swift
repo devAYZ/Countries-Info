@@ -11,7 +11,7 @@ final class HomeViewController: BaseViewController {
 
     // MARK: Views
     private var displayView: HomeViews?
-    var networkClass = NetworkClass()
+    private var viewModel: HomeViewModel?
     
     // MARK: Properties
     private var filteredAllCountries: CountriesResponseList? {
@@ -27,27 +27,7 @@ final class HomeViewController: BaseViewController {
         //
         setupSideMenu()
         setupViews()
-        
-//        networkClass.makeNetworkCall(urlString: .allCountries) { (result: Result<CountriesResponseList, NetworkError>) in
-//            switch result {
-//            case .failure(let error):
-//                print(error)
-//            case .success(let data):
-//                print(data.count)
-//            }
-//        }
-        
-//        networkClass.makeNetworkCall_AF(urlString: .allCountries) { (response: FResponse<CountriesResponseList, FError>) in
-//            switch response.result {
-//            case .success(let data):
-//                self.dataManager.allCountries = data
-//                self.setFilterData()
-//            case .failure(let error):
-//                self.showAlert(title: "Error", message: error.localizedDescription, completion: nil)
-//            }
-//        }
-        
-        setFilterData()
+        handleAttachViewModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,6 +44,10 @@ final class HomeViewController: BaseViewController {
         self.displayView = displayView
     }
     
+    func attachViewModel(_ vm: HomeViewModel) {
+        viewModel = vm
+    }
+    
     private func setupViews() {
         view.backgroundColor = .systemBackground
         guard let displayView = displayView else { return }
@@ -75,7 +59,8 @@ final class HomeViewController: BaseViewController {
         view.addSubviews(displayView.headerStack,
                          displayView.searchBar,
                          displayView.countryTableView,
-                         displayView.emptyView)
+                         displayView.emptyView,
+                         displayView.loader)
         
         displayView.countryTableView.refreshControl?.addTarget(
             self,
@@ -121,8 +106,11 @@ final class HomeViewController: BaseViewController {
             bottom: view.bottomAnchor,
             right: view.rightAnchor)
         
-        // Hide View
-        displayView.emptyView.isHidden = true
+        displayView.loader.anchor(
+            top: view.topAnchor,
+            left: view.leftAnchor,
+            bottom: view.bottomAnchor,
+            right: view.rightAnchor)
     }
     
     func attachSideMenu(_ rootVC: SideMenuViewController) {
@@ -136,7 +124,33 @@ final class HomeViewController: BaseViewController {
     }
     
     @objc private func handleTryAgain() {
-        print("try Again")
+        viewModel?.fetchCountryList()
+    }
+    
+    private func handleAttachViewModel() {
+        viewModel?.networkCallSuccess = { [weak self] data in
+            self?.dataManager.allCountries = data
+            self?.setFilterData()
+        }
+        
+        viewModel?.networkCallFailed = { [weak self] error in
+            self?.showAlert(title: "Error", message: error?.localizedDescription, completion: nil)
+        }
+        
+        viewModel?.showLoading = { [weak self] state in
+            switch state {
+            case true:
+                self?.displayView?.loader.isHidden = !state
+                self?.displayView?.loader.startAnimating()
+            case false:
+                self?.displayView?.loader.isHidden = !state
+                self?.displayView?.loader.stopAnimating()
+            }
+        }
+        
+        dataManager.allCountries == nil ?
+        (viewModel?.fetchCountryList()) :
+        (setFilterData())
     }
     
     private func setFilterData() {
