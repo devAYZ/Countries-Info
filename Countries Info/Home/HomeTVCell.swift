@@ -21,8 +21,7 @@ final class HomeTVCell: UITableViewCell {
     lazy var countryLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 20, weight: .semibold)
-        label.text = "Nigeria"
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         return label
     }()
     
@@ -30,7 +29,6 @@ final class HomeTVCell: UITableViewCell {
         let label = UILabel()
         label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .regular)
-        label.text = "Lagos"
         label.textColor = .secondaryLabel
         return label
     }()
@@ -95,7 +93,6 @@ final class HomeTVCell: UITableViewCell {
 
     private func setupLayout() {
         contentView.addSubview(bodyStack)
-        iconImageView.loadImage(from: "https://picsum.photos/200")
         bodyStack.anchor(top: contentView.topAnchor,
                          left: contentView.leftAnchor,
                          bottom: contentView.bottomAnchor,
@@ -104,5 +101,12 @@ final class HomeTVCell: UITableViewCell {
                          paddingLeft: 10,
                          paddingBottom: 10,
                          paddingRight: 10)
+    }
+    
+    func setupCell(_ data: CountriesResponse?) {
+        countryLabel.text = data?.name?.official
+        cityLabel.text = data?.capital?.first
+        currencyLabel.text = data?.currencies?.first?.value.symbol
+        iconImageView.loadImage(from: data?.flags?.png)
     }
 }

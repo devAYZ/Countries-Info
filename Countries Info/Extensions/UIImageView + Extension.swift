@@ -9,8 +9,8 @@ import Kingfisher
 import UIKit
 
 extension UIImageView {
-    func loadImage(from urlString: String) {
-        guard let url = URL(string: urlString) else {
+    func loadImage(from urlString: String?) {
+        guard let url = URL(string: urlString ?? "") else {
             self.image = .init(named: "dummy")
             return
         }

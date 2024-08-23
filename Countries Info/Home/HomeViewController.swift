@@ -126,11 +126,12 @@ extension HomeViewController: SideMenuDisplay {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        10
+        dataManager.allCountries?.prefix(20).count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "\(HomeTVCell.self)", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "\(HomeTVCell.self)", for: indexPath) as! HomeTVCell
+        cell.setupCell(dataManager.allCountries?[indexPath.row])
         return cell
     }
     
