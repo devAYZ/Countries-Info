@@ -82,6 +82,7 @@
 		0435E90C2C78A16E00F0A472 /* HomeModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeModels.swift; sourceTree = "<group>"; };
 		0435E90F2C78A60D00F0A472 /* NetworkClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkClass.swift; sourceTree = "<group>"; };
 		0435E9112C78A72500F0A472 /* NetworkModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkModels.swift; sourceTree = "<group>"; };
+		0435E9132C78DCFE00F0A472 /* README.md */ = {isa = PBXFileReference; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		B730E6E42C7880A200DF058D /* HomeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViews.swift; sourceTree = "<group>"; };
 		B730E6E62C78835600DF058D /* SettingsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViews.swift; sourceTree = "<group>"; };
 		B730E6EA2C788C1200DF058D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -133,6 +134,7 @@
 		040DF2E12C762729007034C9 = {
 			isa = PBXGroup;
 			children = (
+				0435E9132C78DCFE00F0A472 /* README.md */,
 				040DF2EC2C762729007034C9 /* Countries Info */,
 				040DF3032C76272F007034C9 /* Countries InfoTests */,
 				040DF30D2C76272F007034C9 /* Countries InfoUITests */,
@@ -159,7 +161,7 @@
 				0435E9092C7806CB00F0A472 /* Settings */,
 				0435E9042C77E19600F0A472 /* SideMenu */,
 				B7A812302C77370500E7EBC8 /* SignInViewController */,
-				B7A812242C772B2600E7EBC8 /* InterceptorViewController */,
+				B7A812242C772B2600E7EBC8 /* NavigationDirector */,
 				B7A812212C772AE300E7EBC8 /* AppCoordinator */,
 				B7A812272C772B5700E7EBC8 /* Managers */,
 				B7A812382C77392600E7EBC8 /* Extensions */,
@@ -241,12 +243,12 @@
 			path = AppCoordinator;
 			sourceTree = "<group>";
 		};
-		B7A812242C772B2600E7EBC8 /* InterceptorViewController */ = {
+		B7A812242C772B2600E7EBC8 /* NavigationDirector */ = {
 			isa = PBXGroup;
 			children = (
 				B7A812252C772B4000E7EBC8 /* InterceptorViewController.swift */,
 			);
-			path = InterceptorViewController;
+			path = NavigationDirector;
 			sourceTree = "<group>";
 		};
 		B7A812272C772B5700E7EBC8 /* Managers */ = {

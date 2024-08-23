@@ -121,7 +121,7 @@ final class HomeViewController: BaseViewController {
     }
     
     @objc private func handleRefreshList() {
-        print("refreshControl")
+        handleTryAgain()
         displayView?.countryTableView.refreshControl?.endRefreshing()
     }
     

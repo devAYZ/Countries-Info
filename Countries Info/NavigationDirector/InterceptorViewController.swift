@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class InterceptorViewController: BaseViewController {
+final class NavigationDirectorViewController: BaseViewController {
     
     // MARK: Views
     private lazy var backgroundImageView: UIImageView = {
@@ -24,10 +24,6 @@ final class InterceptorViewController: BaseViewController {
         
         setupViews()
         zoomInLogo(backgroundImageView)
-        
-        Timer.scheduledTimer(withTimeInterval: 1.2, repeats: false) { _ in
-            self.openNavigation()
-        }
     }
     
     private func openNavigation() {
@@ -49,13 +45,13 @@ final class InterceptorViewController: BaseViewController {
     /// Add zoom effect to UIImageView
     /// - Parameter image: image to apply zoom effect on
     private func zoomInLogo(_ image: UIImageView) {
-        UIView.animate(withDuration: 0.9, animations: {() -> Void in
+        UIView.animate(withDuration: 0.6, animations: {() -> Void in
             image.transform = CGAffineTransform(scaleX: 0.5, y: 0.5)
         }) { _ in
-            UIView.animate(withDuration: 0.9, animations: {() -> Void in
-                image.transform = CGAffineTransform(scaleX: 3.4, y: 3.4)
+            UIView.animate(withDuration: 0.8, animations: {() -> Void in
+                image.transform = CGAffineTransform(scaleX: 3.0, y: 3.0)
             }) { _ in
-                // Do nothing
+                self.openNavigation()
             }
         }
     }

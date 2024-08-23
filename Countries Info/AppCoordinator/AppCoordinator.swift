@@ -26,12 +26,11 @@ public class AppCoordinator: Coordinator {
     }
     
     public func start() {
-        //navigationDirector()
-        openHome()
+        navigationDirector()
     }
     
     func navigationDirector() {
-        let vc = InterceptorViewController()
+        let vc = NavigationDirectorViewController()
         vc.coordinator = self
         navigationController.pushViewController(vc, animated: false)
     }

@@ -58,7 +58,7 @@ class DetailsViews: UIView {
     func listTitleLabel(text: String = "") -> UILabel {
         let label = UILabel()
         label.textColor = .link
-        label.font = .systemFont(ofSize: 18, weight: .medium)
+        label.font = .systemFont(ofSize: 18, weight: .regular)
         label.textAlignment = .left
         label.text = text
         return label
@@ -68,7 +68,7 @@ class DetailsViews: UIView {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = .zero
-        label.font = .systemFont(ofSize: 22, weight: .semibold)
+        label.font = .systemFont(ofSize: 20, weight: .medium)
         label.textAlignment = .right
         label.text = text
         label.adjustsFontSizeToFitWidth = true

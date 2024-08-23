@@ -24,7 +24,7 @@ final class HomeViews: UIView {
     
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
-        searchBar.searchTextField.font = .systemFont(ofSize: 20, weight: .semibold)
+        searchBar.searchTextField.font = .systemFont(ofSize: 16, weight: .medium)
         searchBar.placeholder = "Search... Name, Capital, Currency"
         return searchBar
     }()
@@ -41,7 +41,7 @@ final class HomeViews: UIView {
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 25, weight: .semibold)
+        label.font = .systemFont(ofSize: 22, weight: .medium)
         label.text = "Favourite Countries List"
         label.textAlignment = .center
         label.textColor = .label

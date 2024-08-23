@@ -17,7 +17,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.14999999999999999" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="world-map-big" translatesAutoresizingMaskIntoConstraints="NO" id="g9U-1W-NsT">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.12" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="world-map-big" translatesAutoresizingMaskIntoConstraints="NO" id="g9U-1W-NsT">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sweden-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-0d-Hsh">
@@ -25,17 +25,17 @@
                                 <color key="tintColor" systemColor="systemOrangeColor"/>
                             </imageView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="wT7-FW-OVZ">
-                                <rect key="frame" x="0.0" y="394.33333333333331" width="393" height="63.333333333333314"/>
+                                <rect key="frame" x="0.0" y="398" width="393" height="56.333333333333314"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countries Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-Jb-jFV">
-                                        <rect key="frame" x="0.0" y="0.0" width="393" height="41.666666666666664"/>
-                                        <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="36"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="37"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="32"/>
                                         <color key="textColor" red="0.20392156862745098" green="0.60445804195804198" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="         ..in their Majority" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-vU-fMD">
-                                        <rect key="frame" x="0.0" y="36.666666666666686" width="393" height="26.666666666666671"/>
-                                        <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="23"/>
+                                        <rect key="frame" x="0.0" y="32" width="393" height="24.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
