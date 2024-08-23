@@ -16,6 +16,8 @@ class HomeViews: UIView {
         tableView.rowHeight = 80
         tableView.separatorStyle = .none
         tableView.showsVerticalScrollIndicator = false
+        tableView.refreshControl = UIRefreshControl()
+        tableView.refreshControl?.tintColor = .systemGreen
         return tableView
     }()
     

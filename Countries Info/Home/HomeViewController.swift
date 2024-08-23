@@ -43,6 +43,11 @@ final class HomeViewController: BaseViewController {
                          displayView.countryTableView,
                          displayView.emptyView)
         
+        displayView.countryTableView.refreshControl?.addTarget(
+            self,
+            action:#selector(handleRefreshList),
+            for: .valueChanged)
+        
         displayView.sideMenuButton.addTarget(
             self,
             action: #selector(handleSideMenu),
@@ -74,11 +79,19 @@ final class HomeViewController: BaseViewController {
             left: view.leftAnchor,
             bottom: view.bottomAnchor,
             right: view.rightAnchor)
+        
+        // Hide View
+        displayView.emptyView.isHidden = true
     }
     
     func attachSideMenu(_ rootVC: SideMenuViewController) {
         sideMenu = SideMenuNavController(rootViewController: rootVC)
         rootVC.delegate = self
+    }
+    
+    @objc private func handleRefreshList() {
+        print("refreshControl")
+        displayView?.countryTableView.refreshControl?.endRefreshing()
     }
     
     @objc private func handleTryAgain() {
