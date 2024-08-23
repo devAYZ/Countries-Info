@@ -1,8 +1,11 @@
-<?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13122.16" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" launchScreen="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="01J-lp-oVM">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13104.12"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -11,15 +14,85 @@
             <objects>
                 <viewController id="01J-lp-oVM" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Ze5-6b-2t3">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" xcode11CocoaTouchSystemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.12" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="world-map-big" translatesAutoresizingMaskIntoConstraints="NO" id="g9U-1W-NsT">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                            </imageView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.34999999999999998" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Sweden-transparent" translatesAutoresizingMaskIntoConstraints="NO" id="CD1-0d-Hsh">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                                <color key="tintColor" systemColor="systemOrangeColor"/>
+                            </imageView>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="-5" translatesAutoresizingMaskIntoConstraints="NO" id="wT7-FW-OVZ">
+                                <rect key="frame" x="0.0" y="398" width="393" height="56.333333333333314"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Countries Info" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rUk-Jb-jFV">
+                                        <rect key="frame" x="0.0" y="0.0" width="393" height="37"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-BoldOblique" family="Helvetica" pointSize="32"/>
+                                        <color key="textColor" red="0.20392156862745098" green="0.60445804195804198" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="         ..in their Majority" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Uq-vU-fMD">
+                                        <rect key="frame" x="0.0" y="32" width="393" height="24.333333333333329"/>
+                                        <fontDescription key="fontDescription" name="Helvetica-Oblique" family="Helvetica" pointSize="21"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="1" green="0.58431372549019611" blue="0.0" alpha="0.1482780612244898" colorSpace="custom" customColorSpace="sRGB"/>
+                            </stackView>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="jvK-CL-rOA">
+                                <rect key="frame" x="156.66666666666666" y="822" width="80" height="30"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="v1.0.0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="haV-LW-cs5">
+                                        <rect key="frame" x="14" y="4" width="52" height="22"/>
+                                        <fontDescription key="fontDescription" name="Helvetica" family="Helvetica" pointSize="19"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="0.5" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="80" id="29w-0o-VkA"/>
+                                    <constraint firstItem="haV-LW-cs5" firstAttribute="centerY" secondItem="jvK-CL-rOA" secondAttribute="centerY" id="RrN-j7-Ohs"/>
+                                    <constraint firstAttribute="height" constant="30" id="fYA-w0-YgF"/>
+                                    <constraint firstItem="haV-LW-cs5" firstAttribute="centerX" secondItem="jvK-CL-rOA" secondAttribute="centerX" id="jPk-iw-CLt"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="CD1-0d-Hsh" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8nC-MX-r56"/>
+                            <constraint firstAttribute="bottom" secondItem="g9U-1W-NsT" secondAttribute="bottom" id="D38-Ov-oGn"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="wT7-FW-OVZ" secondAttribute="trailing" id="GtV-F1-P5s"/>
+                            <constraint firstAttribute="bottom" secondItem="jvK-CL-rOA" secondAttribute="bottom" id="OxO-zd-6Ud"/>
+                            <constraint firstItem="jvK-CL-rOA" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="QPa-RN-bIN"/>
+                            <constraint firstItem="CD1-0d-Hsh" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="QT7-0g-1bU"/>
+                            <constraint firstItem="g9U-1W-NsT" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="SMQ-Pr-wbo"/>
+                            <constraint firstItem="CD1-0d-Hsh" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="VTz-gr-m1d"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="g9U-1W-NsT" secondAttribute="trailing" id="YPe-3F-jl4"/>
+                            <constraint firstItem="wT7-FW-OVZ" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" id="az1-H6-5hW"/>
+                            <constraint firstItem="wT7-FW-OVZ" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="ca0-eW-WLS"/>
+                            <constraint firstItem="g9U-1W-NsT" firstAttribute="top" secondItem="Ze5-6b-2t3" secondAttribute="top" id="eXL-XX-Oq1"/>
+                            <constraint firstAttribute="bottom" secondItem="CD1-0d-Hsh" secondAttribute="bottom" id="wui-YV-NA3"/>
+                        </constraints>
                     </view>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="iYj-Kq-Ea1" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="53" y="375"/>
+            <point key="canvasLocation" x="52.671755725190835" y="374.64788732394368"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="Sweden-transparent" width="361" height="765"/>
+        <image name="world-map-big" width="1600" height="900"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+        <systemColor name="systemOrangeColor">
+            <color red="1" green="0.58431372549019611" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
+    </resources>
 </document>
