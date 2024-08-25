@@ -15,7 +15,6 @@ public protocol Coordinator {
     func start()
 }
 
-
 public class AppCoordinator: Coordinator {
     
     // MARK: Properties

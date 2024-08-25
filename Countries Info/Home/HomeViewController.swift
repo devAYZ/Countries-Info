@@ -22,8 +22,6 @@ final class HomeViewController: BaseViewController {
         }
     }
     
-    var tempData: CountriesResponseList?
-    
     override func basicSetup() {
         super.basicSetup()
         //
@@ -76,7 +74,7 @@ final class HomeViewController: BaseViewController {
         
         displayView.tryAgainButton.addTarget(
             self,
-            action: #selector(handleTryAgain),
+            action: #selector(refetchCountryList),
             for: .touchUpInside)
         
         displayView.headerStack.anchor(
@@ -85,7 +83,7 @@ final class HomeViewController: BaseViewController {
             bottom: displayView.searchBar.topAnchor,
             right: view.rightAnchor,
             paddingTop: 5,
-            paddingLeft: 5,
+            paddingLeft: 15,
             paddingRight: 5)
         
         displayView.searchBar.anchor(
@@ -121,11 +119,11 @@ final class HomeViewController: BaseViewController {
     }
     
     @objc private func handleRefreshList() {
-        handleTryAgain()
+        refetchCountryList()
         displayView?.countryTableView.refreshControl?.endRefreshing()
     }
     
-    @objc private func handleTryAgain() {
+    @objc private func refetchCountryList() {
         viewModel?.fetchCountryList()
     }
     
@@ -153,7 +151,6 @@ final class HomeViewController: BaseViewController {
         filteredAllCountries?.isEmpty ?? true ?
         (displayView?.emptyView.isHidden = false) :
         (displayView?.emptyView.isHidden = true)
-        tempData = filteredAllCountries
     }
 }
 
@@ -165,18 +162,18 @@ extension HomeViewController: SideMenuDisplay {
 
 extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        dataManager.allCountries?.count ?? 1
+        filteredAllCountries?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "\(HomeTVCell.self)", for: indexPath) as! HomeTVCell
-        cell.setupCell(dataManager.allCountries?[indexPath.row])
+        cell.setupCell(filteredAllCountries?[indexPath.row])
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
-        coordinator?.openDetails(selectedCountry: dataManager.allCountries?[indexPath.row])
+        coordinator?.openDetails(selectedCountry: filteredAllCountries?[indexPath.row])
     }
 }
 
@@ -191,14 +188,13 @@ extension HomeViewController: UISearchBarDelegate {
             filteredAllCountries = dataManager.allCountries
             return
         } else {
-            filteredAllCountries = tempData?.filter({ obj -> Bool in
+            filteredAllCountries = dataManager.allCountries?.filter({ obj -> Bool in
                 return obj.name?.official?.lowercased().contains(searchText.lowercased()) ?? false ||
                 obj.name?.common?.lowercased().contains(searchText.lowercased()) ?? false ||
                 obj.currencies?.first?.value.name?.lowercased().contains(searchText.lowercased()) ?? false ||
                 obj.capital?.first?.lowercased().contains(searchText.lowercased()) ?? false
             })
         }
-        displayView?.countryTableView.reloadData()
     }
     
 }
@@ -210,6 +206,9 @@ extension HomeViewController: HomeView {
     }
     
     func networkCallFailed(error: FError?) {
-        showAlert(title: "Error", message: error?.localizedDescription, completion: nil)
+        showAlert(
+            title: SConstants.error,
+            message: error?.localizedDescription,
+            completion: nil)
     }
 }
