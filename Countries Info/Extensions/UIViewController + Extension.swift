@@ -8,8 +8,11 @@
 import UIKit
 
 extension UIViewController {
-    func showAlert(title: String, message: String? = nil, action1: String = "Cancel",
-                   action2: String = "OK", completion: (() -> ())?) {
+    func showAlert(
+        title: String, message: String? = nil,
+        action1: String = SConstants.cancel, action2: String = SConstants.ok,
+        completion: (() -> ())?)
+    {
         let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
         
         alert.addAction(UIAlertAction(title: action1, style: .default, handler: nil))
