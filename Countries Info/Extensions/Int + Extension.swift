@@ -17,4 +17,12 @@ extension Int {
     static var two: Int {
         return 2 as Int
     }
+    
+    // Comma Delimiter Method
+    func addCommaDelimiter() -> String {
+        let numberFormatter = NumberFormatter()
+        numberFormatter.numberStyle = .decimal
+        numberFormatter.groupingSeparator = ","
+        return numberFormatter.string(from: .init(value: self)) ?? "\(self)"
+    }
 }

@@ -31,7 +31,8 @@ final class DetailsViewController: BaseViewController {
         displayView?.countryFlagValue.text = countryData?.flag
         displayView?.continentNameValue.text = countryData?.continents?.first
         displayView?.timeZoneValue.text = countryData?.timezones?.first
-        displayView?.populationValue.text = "\(countryData?.population ?? 0)"
+        displayView?.populationValue.text = (countryData?.population ?? 0).addCommaDelimiter()
+
     }
     
     func attachViews(_ displayView: DetailsViews) {
