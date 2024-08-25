@@ -38,9 +38,9 @@ class NetworkClass: NetworkClassProtocol {
     ///   - urlString: urlString
     ///   - completion: completion handler
     func makeNetworkCall_AF<T: Decodable>(urlString: Endpoint, completion: @escaping (AFDataResponse<T>) -> ()){
-        print("STARTING.. Network call")
+        print(SConstants.startingNC) // Track network call
         AF.request(urlString.rawValue).responseDecodable(of: T.self) { response in
-            print("COMPLETED.. Network call")
+            print(SConstants.completedNC)
             completion(response)
         }
     }
@@ -55,7 +55,7 @@ class NetworkClass: NetworkClassProtocol {
             return
         }
         
-        print("STARTING.. Network call") // Track network call
+        print(SConstants.startingNC) // Track network call
         
         var request = URLRequest(url: url)
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
@@ -64,7 +64,7 @@ class NetworkClass: NetworkClassProtocol {
         let session = URLSession.shared
         let task = session.dataTask(with: request) { data, response, error in
             
-            print("COMPLETED.. Network call") // Track network call
+            print(SConstants.completedNC)
             
             guard error == nil else {
                 print(error as Any)
@@ -83,6 +83,7 @@ class NetworkClass: NetworkClassProtocol {
                 completion(.success(result))
             } catch {
                 print(error)
+                completion(.failure(error as? NetworkError ?? .error))
             }
         }
         task.resume()

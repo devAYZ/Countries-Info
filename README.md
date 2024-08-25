@@ -13,7 +13,7 @@ Features Pages:
 
 ## Project File Requirements
 - Swift 5.0+
-- UIKit (I will love to convert this to SwiftUI view in coming days)
+- UIKit - Programmatic (I will love to convert this to SwiftUI view in coming days)
 - iOS 14.0+
 - Xcode 14+
 
@@ -33,16 +33,33 @@ Features Pages:
 
 
 ## Dependencies
-- GoogleSignin: User Authentication
-- SideMenu: Used to Present foldable menu.
-- Kingfisher: This handle loading image from URL and string
-- Alamofire: For Networking
+- Google Sign-In: Implements user authentication.
+- SideMenu: Presents a collapsible menu.
+- Kingfisher: Handles image loading from URLs and strings.
+- Alamofire: Manages networking tasks.
 
 
 ## Network Call
-- Github open API
+- Open API from Rest Countries [link](https://restcountries.com)
 
 
 ## Network Call Implemtation
 - Alamofire Implemtation
 - URLSession Implemtation
+
+
+## Data Storage
+- User Default
+
+
+## Font
+- System Font (Regular, Medium, Semibold, Bold)
+
+
+## Color
+- Label
+- Secondary Label
+- Link
+- System Background
+- System Orange
+- System Green

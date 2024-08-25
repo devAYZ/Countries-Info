@@ -29,6 +29,9 @@ final class DetailsViewController: BaseViewController {
         displayView?.currencyNameValue.text = countryData?.currencies?.first?.value.name
         displayView?.currencySignValue.text = countryData?.currencies?.first?.value.symbol
         displayView?.countryFlagValue.text = countryData?.flag
+        displayView?.continentNameValue.text = countryData?.continents?.first
+        displayView?.timeZoneValue.text = countryData?.timezones?.first
+        displayView?.populationValue.text = "\(countryData?.population ?? 0)"
     }
     
     func attachViews(_ displayView: DetailsViews) {

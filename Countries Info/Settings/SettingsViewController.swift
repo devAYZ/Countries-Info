@@ -68,7 +68,7 @@ final class SettingsViewController: BaseViewController {
     }
     
     @objc public func handleSignout() {
-        showAlert(title: "Are you sure?") { [unowned self] in
+        showAlert(title: SConstants.areYouSure) { [unowned self] in
             dataManager.logOut()
             coordinator?.openSignin(animated: false)
         }

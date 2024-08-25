@@ -25,7 +25,7 @@ final class HomeViews: UIView {
     lazy var searchBar: UISearchBar = {
         let searchBar = UISearchBar()
         searchBar.searchTextField.font = .systemFont(ofSize: 16, weight: .medium)
-        searchBar.placeholder = "Search... Name, Capital, Currency"
+        searchBar.placeholder = SConstants.searchHint
         return searchBar
     }()
     
@@ -42,7 +42,7 @@ final class HomeViews: UIView {
         let label = UILabel()
         label.textColor = .label
         label.font = .systemFont(ofSize: 22, weight: .medium)
-        label.text = "Favourite Countries List"
+        label.text = SConstants.favCountriesList
         label.textAlignment = .center
         label.textColor = .label
         return label
@@ -55,6 +55,7 @@ final class HomeViews: UIView {
         stackView.axis = .horizontal
         stackView.alignment = .center
         stackView.distribution = .fill
+        stackView.spacing = -20
         return stackView
     }()
     
@@ -71,13 +72,13 @@ final class HomeViews: UIView {
         let label = UILabel()
         label.textColor = .label
         label.font = .systemFont(ofSize: 22, weight: .medium)
-        label.text = "Data not Available"
+        label.text = SConstants.dataNA
         return label
     }()
     
     lazy var tryAgainButton: UIButton = {
         let button = UIButton()
-        button.setTitle("Try Again", for: .normal)
+        button.setTitle(SConstants.tryAgain, for: .normal)
         button.backgroundColor = .systemRed.withAlphaComponent(0.7)
         button.layer.cornerRadius = 5
         button.anchor(width: 140, height: 40)
