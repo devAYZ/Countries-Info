@@ -24,7 +24,7 @@ final class DetailsViewController: BaseViewController {
         ].forEach { $0?.loadImage(from: countryData?.flags?.png) }
         displayView?.topLabel.text = countryData?.name?.official
         
-        displayView?.countryNameValue.text = countryData?.name?.official
+        displayView?.countryNameValue.text = countryData?.name?.common
         displayView?.capitalNameValue.text = countryData?.capital?.first
         displayView?.currencyNameValue.text = countryData?.currencies?.first?.value.name
         displayView?.currencySignValue.text = countryData?.currencies?.first?.value.symbol

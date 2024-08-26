@@ -33,9 +33,10 @@ class DetailsViews: UIView {
     lazy var topLabel: UILabel = {
         let label = UILabel()
         label.textColor = .label
-        label.font = .systemFont(ofSize: 24, weight: .semibold)
+        label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.textAlignment = .center
         label.textColor = .link
+        label.numberOfLines = 2
         return label
     }()
     
@@ -51,7 +52,7 @@ class DetailsViews: UIView {
         stackView.axis = .horizontal
         stackView.spacing = 16
         stackView.alignment = .center
-        stackView.distribution = .fill
+        stackView.distribution = .fillEqually
         views.forEach { stackView.addArrangedSubview($0) }
         return stackView
     }
@@ -201,9 +202,9 @@ class DetailsViews: UIView {
             left: topView.leftAnchor,
             bottom: topView.bottomAnchor,
             right: topView.rightAnchor,
-            paddingLeft: 4,
+            paddingLeft: 10,
             paddingBottom: 4,
-            paddingRight: 4)
+            paddingRight: 10)
         topLabel.centerX(inView: topView)
         
         bodyStackView.anchor(
