@@ -24,14 +24,15 @@ final class DetailsViewController: BaseViewController {
         ].forEach { $0?.loadImage(from: countryData?.flags?.png) }
         displayView?.topLabel.text = countryData?.name?.official
         
-        displayView?.countryNameValue.text = countryData?.name?.official
+        displayView?.countryNameValue.text = countryData?.name?.common
         displayView?.capitalNameValue.text = countryData?.capital?.first
         displayView?.currencyNameValue.text = countryData?.currencies?.first?.value.name
         displayView?.currencySignValue.text = countryData?.currencies?.first?.value.symbol
         displayView?.countryFlagValue.text = countryData?.flag
         displayView?.continentNameValue.text = countryData?.continents?.first
         displayView?.timeZoneValue.text = countryData?.timezones?.first
-        displayView?.populationValue.text = "\(countryData?.population ?? 0)"
+        displayView?.populationValue.text = (countryData?.population ?? 0).addCommaDelimiter()
+
     }
     
     func attachViews(_ displayView: DetailsViews) {

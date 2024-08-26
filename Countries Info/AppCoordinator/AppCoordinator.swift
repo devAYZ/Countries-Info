@@ -7,7 +7,7 @@
 
 import UIKit
 
-public protocol Coordinator {
+protocol Coordinator {
     
     // MARK: Propertites
     var navigationController: UINavigationController { get set }
@@ -15,16 +15,16 @@ public protocol Coordinator {
     func start()
 }
 
-public class AppCoordinator: Coordinator {
+class AppCoordinator: Coordinator {
     
     // MARK: Properties
-    public var navigationController: UINavigationController
+    var navigationController: UINavigationController
     
-    public init(navigationController: UINavigationController) {
+    init(navigationController: UINavigationController) {
         self.navigationController = navigationController
     }
     
-    public func start() {
+    func start() {
         navigationDirector()
     }
     

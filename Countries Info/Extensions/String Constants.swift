@@ -27,7 +27,7 @@ struct SConstants {
     
     // Details
     static let flag = "Flag"
-    static let countryName = "Country Name"
+    static let countryName = "Country C'Name"
     static let capitalCity = "Capital City"
     static let currencySign = "Currency Sign"
 }

@@ -6,11 +6,15 @@
 //
 
 import Foundation
+import Alamofire
 
 protocol HomeView {
     func networkCallSuccess(data: CountriesResponseList?)
     func networkCallFailed(error: FError?)
 }
+
+typealias FError = AFError
+typealias FResponse = DataResponse
 
 class HomeViewModel {
     
@@ -41,17 +45,6 @@ class HomeViewModel {
                 view?.networkCallSuccess(data: data)
             case .failure(let error):
                 view?.networkCallFailed(error: error)
-            }
-        }
-    }
-    
-    private func fetchCountryList_V1() {
-        networkClass?.makeNetworkCall_Native(urlString: .allCountries) { (result: Result<CountriesResponseList, NetworkError>) in
-            switch result {
-            case .failure(_):
-                break
-            case .success(_):
-                break
             }
         }
     }

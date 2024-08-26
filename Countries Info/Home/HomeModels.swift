@@ -7,10 +7,10 @@
 import Foundation
 
 
-public typealias CountriesResponseList = [CountriesResponse]
+typealias CountriesResponseList = [CountriesResponse]
 
 // MARK: CountriesResponse
-public struct CountriesResponse: Codable {
+struct CountriesResponse: Codable {
     var name: Name?
     var tld: [String]?
     var cca2, ccn3, cca3: String?
@@ -41,7 +41,7 @@ public struct CountriesResponse: Codable {
     var gini: [String: Double]?
     var postalCode: PostalCode?
     
-    public init(
+    init(
         name: Name? = nil, tld: [String]? = nil, cca2: String? = nil,
         ccn3: String? = nil, cca3: String? = nil, independent: Bool? = nil,
         status: String? = nil, unMember: Bool? = nil, currencies: [String : Currency]? = nil,
@@ -94,57 +94,57 @@ public struct CountriesResponse: Codable {
 }
 
 // MARK: Car
-public struct Car: Codable {
+struct Car: Codable {
     var signs: [String]?
     var side: String?
 }
 
 // MARK: CoatOfArms
-public struct CoatOfArms: Codable {
+struct CoatOfArms: Codable {
     var png: String?
     var svg: String?
 }
 
 // MARK: Currency
-public struct Currency: Codable {
+struct Currency: Codable {
     var name, symbol: String?
 }
 
 // MARK: Eng
-public struct Eng: Codable {
+struct Eng: Codable {
     var f, m: String?
 }
 
 // MARK: Flags
-public struct Flags: Codable {
+struct Flags: Codable {
     var png: String?
     var svg: String?
     var alt: String?
 }
 
 // MARK: Idd
-public struct Idd: Codable {
+struct Idd: Codable {
     var root: String?
     var suffixes: [String]?
 }
 
 // MARK: Languages
-public struct Languages: Codable {
+struct Languages: Codable {
     var eng, fra, gsw, ita: String?
     var roh: String?
 }
 
 // MARK: Maps
-public struct Maps: Codable {
+struct Maps: Codable {
     var googleMaps, openStreetMaps: String?
 }
 
 // MARK: Name
-public struct Name: Codable {
+struct Name: Codable {
     var common, official: String?
     var nativeName: [String: Translation]?
     
-    public init(common: String, official: String?, nativeName: [String: Translation]? = nil) {
+    init(common: String, official: String?, nativeName: [String: Translation]? = nil) {
         self.common = common
         self.official = official
         self.nativeName = nativeName
@@ -152,12 +152,12 @@ public struct Name: Codable {
 }
 
 // MARK: Translation
-public struct Translation: Codable {
+struct Translation: Codable {
     var official, common: String?
 }
 
 // MARK: PostalCode
-public struct PostalCode: Codable {
+struct PostalCode: Codable {
     var format, regex: String?
 }
 
