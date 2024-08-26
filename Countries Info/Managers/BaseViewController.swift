@@ -11,8 +11,8 @@ import SideMenu
 class BaseViewController: UIViewController, DataManagerInjector {
     
     // MARK: Propertites
-    public weak var coordinator: AppCoordinator?
-    public var sideMenu: SideMenuNavigationController?
+    weak var coordinator: AppCoordinator?
+    var sideMenu: SideMenuNavigationController?
     
     // MARK: Lifecycle Methods
     override func viewDidLoad() {
@@ -20,16 +20,16 @@ class BaseViewController: UIViewController, DataManagerInjector {
         basicSetup()
     }
     
-    public override func viewWillAppear(_ animated: Bool) {
+    override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
     }
     
     // MARK: Basic Setup
-    public func basicSetup() {
+    func basicSetup() {
         
     }
     
-    public func setupSideMenu() {
+    func setupSideMenu() {
         sideMenu?.leftSide = true
         SideMenuManager.default.leftMenuNavigationController = sideMenu
     }

@@ -16,22 +16,9 @@ protocol NetworkClassProtocol {
     func makeNetworkCall_AF<T: Decodable>(
         urlString: Endpoint,
         completion: @escaping (AFDataResponse<T>) -> () )
-    
-    func makeNetworkCall_Native<T: Decodable>(
-        urlString: Endpoint,
-        completion: @escaping (Result<T, NetworkError>) -> ())
 }
 
-extension NetworkClassProtocol {
-    func makeNetworkCall_Native<T: Decodable>(
-        urlString: Endpoint,
-        completion: @escaping (Result<T, NetworkError>) -> ()) {}
-}
-
-typealias FError = AFError
-typealias FResponse = DataResponse
-
-class NetworkClass: NetworkClassProtocol {
+final class NetworkClass: NetworkClassProtocol {
     
     /// Implement network call using Alamofire
     /// - Parameters:

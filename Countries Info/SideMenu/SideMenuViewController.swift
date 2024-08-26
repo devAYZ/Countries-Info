@@ -78,7 +78,7 @@ final class SideMenuViewController: BaseViewController {
     }()
 
     // MARK: Properties
-    public var delegate: SideMenuDisplay?
+    var delegate: SideMenuDisplay?
     private var menuList = SideMenuList.menuList()
     
     override func basicSetup() {

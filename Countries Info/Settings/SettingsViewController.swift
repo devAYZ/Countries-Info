@@ -62,12 +62,12 @@ final class SettingsViewController: BaseViewController {
         displayView.versionLabel.center(inView: displayView.footerView)
     }
 
-    public func attachSideMenu(_ rootVC: SideMenuViewController) {
+    func attachSideMenu(_ rootVC: SideMenuViewController) {
         sideMenu = SideMenuNavController(rootViewController: rootVC)
         rootVC.delegate = self
     }
     
-    @objc public func handleSignout() {
+    @objc func handleSignout() {
         showAlert(title: SConstants.areYouSure) { [unowned self] in
             dataManager.logOut()
             coordinator?.openSignin(animated: false)
