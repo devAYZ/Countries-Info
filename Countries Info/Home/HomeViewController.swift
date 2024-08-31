@@ -32,12 +32,19 @@ final class HomeViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: true)
+        navigationController?.navigationBar.prefersLargeTitles = true
+        navigationItem.leftBarButtonItem = UIBarButtonItem(
+            image: UIImage(named: "side-menu-icon"), style: .plain,
+            target: self, action: #selector(handleSideMenu))
+        navigationController?.navigationBar.largeTitleTextAttributes = [
+            .font: UIFont.systemFont(ofSize: 25, weight: .medium)
+        ]
+        setupSearchController()
     }
     
-    override func viewWillDisappear(_ animated: Bool) {
-        super.viewWillDisappear(animated)
-        navigationController?.setNavigationBarHidden(false, animated: true)
+    override func loadView() {
+        super.loadView()
+        view = displayView?.containerView
     }
     
     func attachViews(_ displayView: HomeViews) {
@@ -52,65 +59,29 @@ final class HomeViewController: BaseViewController {
         view.backgroundColor = .systemBackground
         guard let displayView = displayView else { return }
         
+        title = SConstants.favCountriesList
+        
         displayView.countryTableView.dataSource = self
         displayView.countryTableView.delegate = self
-        displayView.searchBar.delegate = self
-        
-        view.addSubviews(displayView.headerStack,
-                         displayView.searchBar,
-                         displayView.countryTableView,
-                         displayView.emptyView,
-                         displayView.loader)
         
         displayView.countryTableView.refreshControl?.addTarget(
             self,
             action:#selector(handleRefreshList),
             for: .valueChanged)
         
-        displayView.sideMenuButton.addTarget(
-            self,
-            action: #selector(handleSideMenu),
-            for: .touchUpInside)
-        
         displayView.tryAgainButton.addTarget(
             self,
             action: #selector(refetchCountryList),
             for: .touchUpInside)
+    }
+    
+    func setupSearchController() {
+        guard let displayView = displayView else { return }
         
-        displayView.headerStack.anchor(
-            top: view.safeAreaLayoutGuide.topAnchor,
-            left: view.leftAnchor,
-            bottom: displayView.searchBar.topAnchor,
-            right: view.rightAnchor,
-            paddingTop: 5,
-            paddingLeft: 15,
-            paddingRight: 5)
-        
-        displayView.searchBar.anchor(
-            left: view.leftAnchor,
-            bottom: displayView.countryTableView.topAnchor,
-            right: view.rightAnchor,
-            paddingLeft: 5,
-            paddingRight: 5)
-        
-        displayView.countryTableView.anchor(
-            left: view.leftAnchor,
-            bottom: view.bottomAnchor,
-            right: view.rightAnchor,
-            paddingLeft: 5,
-            paddingRight: 5)
-        
-        displayView.emptyView.anchor(
-            top: displayView.headerStack.bottomAnchor,
-            left: view.leftAnchor,
-            bottom: view.bottomAnchor,
-            right: view.rightAnchor)
-        
-        displayView.loader.anchor(
-            top: view.topAnchor,
-            left: view.leftAnchor,
-            bottom: view.bottomAnchor,
-            right: view.rightAnchor)
+        displayView.searchController.searchResultsUpdater = self        
+        navigationItem.searchController = displayView.searchController
+        definesPresentationContext = false
+        navigationItem.hidesSearchBarWhenScrolling = false
     }
     
     func attachSideMenu(_ rootVC: SideMenuViewController) {
@@ -178,12 +149,9 @@ extension HomeViewController: UITableViewDataSource, UITableViewDelegate {
 }
 
 
-extension HomeViewController: UISearchBarDelegate {
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.endEditing(true)
-    }
-    
-    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+extension HomeViewController: UISearchResultsUpdating {
+    func updateSearchResults(for searchController: UISearchController) {
+        let searchText = searchController.searchBar.text ?? ""
         if searchText.isEmpty {
             filteredAllCountries = dataManager.allCountries
             return
@@ -196,7 +164,6 @@ extension HomeViewController: UISearchBarDelegate {
             })
         }
     }
-    
 }
 
 extension HomeViewController: HomeView {

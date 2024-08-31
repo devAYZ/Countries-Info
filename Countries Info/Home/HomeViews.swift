@@ -10,6 +10,11 @@ import UIKit
 final class HomeViews: UIView {
 
     // MARK: Views
+    lazy var containerView: UIView = {
+        let view = UIView()
+        return view
+    }()
+    
     lazy var countryTableView: UITableView = {
         let tableView = UITableView()
         tableView.register(HomeTVCell.self, forCellReuseIdentifier: "\(HomeTVCell.self)")
@@ -22,11 +27,12 @@ final class HomeViews: UIView {
         return tableView
     }()
     
-    lazy var searchBar: UISearchBar = {
-        let searchBar = UISearchBar()
-        searchBar.searchTextField.font = .systemFont(ofSize: 16, weight: .medium)
-        searchBar.placeholder = SConstants.searchHint
-        return searchBar
+    lazy var searchController: UISearchController = {
+        let search = UISearchController(searchResultsController: nil)
+        search.obscuresBackgroundDuringPresentation = false
+        search.hidesNavigationBarDuringPresentation = false
+        search.searchBar.placeholder = SConstants.searchHint
+        return search
     }()
     
     lazy var sideMenuButton: UIButton = {
@@ -36,27 +42,6 @@ final class HomeViews: UIView {
         button.backgroundColor = .systemGreen.withAlphaComponent(0.2)
         button.layer.cornerRadius = 5
         return button
-    }()
-    
-    lazy var topLabel: UILabel = {
-        let label = UILabel()
-        label.textColor = .label
-        label.font = .systemFont(ofSize: 22, weight: .medium)
-        label.text = SConstants.favCountriesList
-        label.textAlignment = .center
-        label.textColor = .label
-        return label
-    }()
-    
-    lazy var headerStack: UIStackView = {
-        let stackView = UIStackView(arrangedSubviews: [
-            sideMenuButton, topLabel
-        ])
-        stackView.axis = .horizontal
-        stackView.alignment = .center
-        stackView.distribution = .fill
-        stackView.spacing = -20
-        return stackView
     }()
     
     /// `Empty View`
@@ -126,6 +111,33 @@ final class HomeViews: UIView {
         
         emptyView.addSubviews(emptyImageView, emptyInfoStack)
         
+        containerView.addSubviews(countryTableView)
+        
+        containerView.addSubviews(
+            countryTableView,
+            emptyView,
+            loader)
+        
+        countryTableView.anchor(
+            top: containerView.topAnchor,
+            left: containerView.leftAnchor,
+            bottom: containerView.bottomAnchor,
+            right: containerView.rightAnchor,
+            paddingLeft: 5,
+            paddingRight: 5)
+        
+        emptyView.anchor(
+            top: containerView.topAnchor,
+            left: containerView.leftAnchor,
+            bottom: containerView.bottomAnchor,
+            right: containerView.rightAnchor)
+        
+        loader.anchor(
+            top: containerView.topAnchor,
+            left: containerView.leftAnchor,
+            bottom: containerView.bottomAnchor,
+            right: containerView.rightAnchor)
+        
         setupLayout()
     }
 
@@ -134,7 +146,7 @@ final class HomeViews: UIView {
                               left: emptyView.leftAnchor,
                               bottom: emptyView.bottomAnchor,
                               right: emptyView.rightAnchor)
-        emptyInfoStack.center(inView: emptyView, yConstant: -80)
+        emptyInfoStack.center(inView: emptyView)
     }
 
 }

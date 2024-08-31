@@ -54,7 +54,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         // 2
         let navController = UINavigationController()
-        navController.navigationBar.tintColor = .systemOrange
+        navController.navigationBar.tintColor = .systemGreen
         coordinator = AppCoordinator(navigationController: navController)
         coordinator.start()
         
