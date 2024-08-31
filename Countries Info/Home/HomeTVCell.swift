@@ -104,7 +104,7 @@ final class HomeTVCell: UITableViewCell {
     }
     
     func setupCell(_ data: CountriesResponse?) {
-        countryLabel.text = data?.name?.official
+        countryLabel.text = data?.name?.common
         cityLabel.text = data?.capital?.first
         currencyLabel.text = data?.currencies?.first?.value.symbol
         iconImageView.loadImage(from: data?.flags?.png)

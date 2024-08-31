@@ -168,7 +168,9 @@ extension HomeViewController: UISearchResultsUpdating {
 
 extension HomeViewController: HomeView {
     func networkCallSuccess(data: CountriesResponseList?) {
-        dataManager.allCountries = data
+        dataManager.allCountries = data?.sorted(by: {
+            $0.name?.common ?? "" < $1.name?.common ?? ""
+        })
         setFilterData()
     }
     
