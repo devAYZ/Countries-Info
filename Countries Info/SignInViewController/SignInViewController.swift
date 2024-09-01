@@ -12,7 +12,8 @@ final class SignInViewController: BaseViewController {
     
     // MARK: Views
     private var displayView: SignInViews?
-
+    private var backgroundTask: UIBackgroundTaskIdentifier = .invalid
+    
     override func basicSetup() {
         super.basicSetup()
         //
@@ -60,7 +61,20 @@ final class SignInViewController: BaseViewController {
     }
     
     @objc private func handleSignin() {
+        
+        backgroundTask = UIApplication.shared.beginBackgroundTask(withName: "Google_Signin") {
+            // This is the expiration handler.
+            // It is called if the background time is about to expire.
+            self.endBackgroundTask()
+        }
+        
         // Google Signin
+        Google_Signin()
+        
+        endBackgroundTask()
+    }
+    
+    private func Google_Signin() {
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
             guard error == nil else {
                 self.showAlert(title: "Error", message: error?.localizedDescription, completion: nil)
@@ -72,8 +86,19 @@ final class SignInViewController: BaseViewController {
                 self.showAlert(title: "Error", message: "Data Not Found", completion: nil)
                 return
             }
-            self.dataManager.userProfile = result.user.profile
+            self.dataManager.userProfile = .init(
+                name: result.user.profile?.name,
+                email: result.user.profile?.email,
+                imageURL: result.user.profile?.imageURL(withDimension: .image200)
+            )
             self.coordinator?.openHome()
+        }
+    }
+    
+    private func endBackgroundTask() {
+        if backgroundTask != .invalid {
+            UIApplication.shared.endBackgroundTask(backgroundTask)
+            backgroundTask = .invalid
         }
     }
     

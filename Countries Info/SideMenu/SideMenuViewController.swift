@@ -89,7 +89,7 @@ final class SideMenuViewController: BaseViewController {
         
         nameLabel.text = dataManager.userProfile?.name
         emailLabel.text = dataManager.userProfile?.email
-        iconImageView.loadImage(from: dataManager.userProfile?.imageURL(withDimension: 200))
+        iconImageView.loadImage(from: dataManager.userProfile?.imageURL)
     }
     
     private func setupViews() {

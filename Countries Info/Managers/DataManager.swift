@@ -13,6 +13,7 @@ protocol DataManagerInjector {
 }
 
 enum DataManagerKeys: String {
+    case userProfile
     case allCountries
 }
 
@@ -39,7 +40,19 @@ final class DataManager {
         }
     }
     
-    var userProfile: GIDProfileData?
+    var userProfile: UserProfile? {
+        get {
+            if let data = UserDefaults.standard.data(forKey: DataManagerKeys.userProfile.rawValue) {
+                return try? JSONDecoder().decode(UserProfile.self, from: data)
+            }
+            return nil
+        }
+        set(value){
+            if let encoded = try? JSONEncoder().encode(value) {
+                UserDefaults.standard.set(encoded, forKey: DataManagerKeys.userProfile.rawValue)
+            }
+        }
+    }
     
     func logOut() {
         userProfile = nil

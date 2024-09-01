@@ -20,7 +20,7 @@ final class SettingsViewController: BaseViewController {
         
         displayView?.nameLabel.text = dataManager.userProfile?.name
         displayView?.emailLabel.text = dataManager.userProfile?.email
-        displayView?.iconImageView.loadImage(from: dataManager.userProfile?.imageURL(withDimension: 200))
+        displayView?.iconImageView.loadImage(from: dataManager.userProfile?.imageURL)
     }
     
     override func viewWillAppear(_ animated: Bool) {

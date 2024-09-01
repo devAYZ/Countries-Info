@@ -20,7 +20,7 @@ class DetailsViews: UIView {
     lazy var logoImageView: UIImageView = {
         let imageView = UIImageView()
         imageView.contentMode = .scaleAspectFit
-        imageView.anchor(width: 140, height: 120)
+        imageView.anchor(width: 140, height: 110)
         imageView.layer.cornerRadius = 20
         imageView.layer.borderColor = .init(
             red: .zero, green: .zero, blue: .zero, alpha: 0.8)
@@ -37,6 +37,8 @@ class DetailsViews: UIView {
         label.textAlignment = .center
         label.textColor = .link
         label.numberOfLines = 1
+        label.adjustsFontSizeToFitWidth = true
+        label.minimumScaleFactor = 0.9
         return label
     }()
     

@@ -25,4 +25,12 @@ extension Int {
         numberFormatter.groupingSeparator = ","
         return numberFormatter.string(from: .init(value: self)) ?? "\(self)"
     }
+    
+}
+
+extension UInt {
+    
+    static var image200: UInt {
+        return 200 as UInt
+    }
 }
