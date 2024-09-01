@@ -36,7 +36,7 @@ class DetailsViews: UIView {
         label.font = .systemFont(ofSize: 22, weight: .semibold)
         label.textAlignment = .center
         label.textColor = .link
-        label.numberOfLines = 2
+        label.numberOfLines = 1
         return label
     }()
     
@@ -151,7 +151,7 @@ class DetailsViews: UIView {
     }()
     
     /// `Body Stack View`
-    lazy var bodyStackView: UIStackView = {
+    lazy var bottomStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
             countryFlagHStack, countryNameHStack, capitalHStack,
             continentNameHStack, timeZoneHStack, populationHStack,
@@ -163,9 +163,9 @@ class DetailsViews: UIView {
         return stackView
     }()
     
-    lazy var downView: UIView = {
-        let view = UIView()
-        view.backgroundColor = .systemBackground
+    let bottomScrollView: UIScrollView = {
+        let view = UIScrollView()
+        view.showsVerticalScrollIndicator = false
         return view
     }()
     
@@ -184,7 +184,7 @@ class DetailsViews: UIView {
         
         topView.addSubviews(backgroundImageView, logoImageView, topLabel)
         
-        downView.addSubview(bodyStackView)
+        bottomScrollView.addSubview(bottomStackView)
         
         setupLayout()
     }
@@ -203,16 +203,7 @@ class DetailsViews: UIView {
             bottom: topView.bottomAnchor,
             right: topView.rightAnchor,
             paddingLeft: 10,
-            paddingBottom: 4,
             paddingRight: 10)
         topLabel.centerX(inView: topView)
-        
-        bodyStackView.anchor(
-            top: downView.topAnchor,
-            left: downView.leftAnchor,
-            right: downView.rightAnchor,
-            paddingTop: 20,
-            paddingLeft: 16,
-            paddingRight: 16)
     }
 }
