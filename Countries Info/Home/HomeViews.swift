@@ -31,7 +31,16 @@ final class HomeViews: UIView {
         let search = UISearchController(searchResultsController: nil)
         search.obscuresBackgroundDuringPresentation = false
         search.hidesNavigationBarDuringPresentation = false
-        search.searchBar.placeholder = SConstants.searchHint
+        
+        // Customizing the font for placeholder
+        let searchTextField = search.searchBar.value(forKey: "searchField") as? UITextField
+        
+        // Set the font for the placeholder text
+        let placeholderFont: [NSAttributedString.Key: UIFont] = [
+            .font: .italicSystemFont(ofSize: 15)]
+        searchTextField?.attributedPlaceholder = NSAttributedString(
+            string: SConstants.searchHint,
+            attributes: placeholderFont)
         return search
     }()
     
@@ -118,6 +127,8 @@ final class HomeViews: UIView {
             emptyView,
             loader)
         
+        startLoader(true)
+        
         countryTableView.anchor(
             top: containerView.topAnchor,
             left: containerView.leftAnchor,
@@ -147,6 +158,18 @@ final class HomeViews: UIView {
                               bottom: emptyView.bottomAnchor,
                               right: emptyView.rightAnchor)
         emptyInfoStack.center(inView: emptyView)
+    }
+    
+    
+    func startLoader(_ state: Bool) {
+        switch state {
+        case true:
+            loader.isHidden = !state
+            loader.startAnimating()
+        case false:
+            loader.isHidden = !state
+            loader.stopAnimating()
+        }
     }
 
 }

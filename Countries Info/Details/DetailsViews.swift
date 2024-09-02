@@ -24,7 +24,7 @@ class DetailsViews: UIView {
         imageView.layer.cornerRadius = 20
         imageView.layer.borderColor = .init(
             red: .zero, green: .zero, blue: .zero, alpha: 0.8)
-        imageView.layer.borderWidth = 8
+        imageView.layer.borderWidth = 6
         imageView.clipsToBounds = true
         imageView.backgroundColor = .systemBackground.withAlphaComponent(0.9)
         return imageView
@@ -59,7 +59,7 @@ class DetailsViews: UIView {
         return stackView
     }
 
-    func listTitleLabel(text: String = .init()) -> UILabel {
+    func itemTitleLabel(text: String = .init()) -> UILabel {
         let label = UILabel()
         label.textColor = .link
         label.font = .systemFont(ofSize: 18, weight: .regular)
@@ -68,7 +68,7 @@ class DetailsViews: UIView {
         return label
     }
 
-    func listValueLabel(text: String = .init()) -> UILabel {
+    func itemValueLabel(text: String = .init()) -> UILabel {
         let label = UILabel()
         label.textColor = .label
         label.numberOfLines = .zero
@@ -82,82 +82,55 @@ class DetailsViews: UIView {
     
     /// `countryFlag`
     lazy var countryFlagValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var countryFlagHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: SConstants.flag), countryFlagValue)
+        itemValueLabel()
     }()
     
     /// `countryName`
     lazy var countryNameValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var countryNameHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: SConstants.countryName), countryNameValue)
+        itemValueLabel()
     }()
     
     /// `capitalName`
     lazy var capitalNameValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var capitalHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: SConstants.capitalCity), capitalNameValue)
+        itemValueLabel()
     }()
     
     /// `continentName`
     lazy var continentNameValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var continentNameHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: "Continent Name"), continentNameValue)
+        itemValueLabel()
     }()
     
     /// `continentName`
     lazy var timeZoneValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var timeZoneHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: "Time Zone"), timeZoneValue)
+        itemValueLabel()
     }()
     
     /// `Population`
     lazy var populationValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var populationHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: "Population"), populationValue)
+        itemValueLabel()
     }()
     
     /// `currencyName`
     lazy var currencyNameValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var currencyNameHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: "Currency Name"), currencyNameValue)
+        itemValueLabel()
     }()
     
     /// `currencySign`
     lazy var currencySignValue: UILabel = {
-        listValueLabel()
-    }()
-
-    lazy var currencySignHStack: UIStackView = {
-        listHStackView(listTitleLabel(text: SConstants.currencySign), currencySignValue)
+        itemValueLabel()
     }()
     
     /// `Body Stack View`
     lazy var bottomStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            countryFlagHStack, countryNameHStack, capitalHStack,
-            continentNameHStack, timeZoneHStack, populationHStack,
-            currencyNameHStack, currencySignHStack
+            listHStackView(itemTitleLabel(text: SConstants.flag), countryFlagValue),
+            listHStackView(itemTitleLabel(text: SConstants.countryName), countryNameValue),
+            listHStackView(itemTitleLabel(text: SConstants.capitalCity), capitalNameValue),
+            listHStackView(itemTitleLabel(text: "Continent Name"), continentNameValue),
+            listHStackView(itemTitleLabel(text: "Time Zone"), timeZoneValue),
+            listHStackView(itemTitleLabel(text: "Population"), populationValue),
+            listHStackView(itemTitleLabel(text: "Currency Name"), currencyNameValue),
+            listHStackView(itemTitleLabel(text: SConstants.currencySign), currencySignValue)
         ])
         stackView.axis = .vertical
         stackView.alignment = .fill

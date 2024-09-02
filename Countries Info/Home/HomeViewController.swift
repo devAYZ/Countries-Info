@@ -27,7 +27,9 @@ final class HomeViewController: BaseViewController {
         //
         setupSideMenu()
         setupViews()
-        handleAttachViewModel()
+        DispatchQueue.main.async {
+            self.handleAttachViewModel()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -102,26 +104,20 @@ final class HomeViewController: BaseViewController {
         viewModel?.attachView(view: self)
         
         viewModel?.showLoading = { [weak self] state in
-            switch state {
-            case true:
-                self?.displayView?.loader.isHidden = !state
-                self?.displayView?.loader.startAnimating()
-            case false:
-                self?.displayView?.loader.isHidden = !state
-                self?.displayView?.loader.stopAnimating()
-            }
+            self?.displayView?.startLoader(state)
         }
         
-        dataManager.allCountries == nil ?
-        (viewModel?.fetchCountryList()) :
-        (setFilterData())
+        dataManager.allCountries == nil ? (viewModel?.fetchCountryList()) :
+        (displayFetchedList())
     }
     
-    private func setFilterData() {
+    private func displayFetchedList() {
         filteredAllCountries = dataManager.allCountries
         filteredAllCountries?.isEmpty ?? true ?
         (displayView?.emptyView.isHidden = false) :
         (displayView?.emptyView.isHidden = true)
+        
+        displayView?.startLoader(false)
     }
 }
 
@@ -171,7 +167,7 @@ extension HomeViewController: HomeView {
         dataManager.allCountries = data?.sorted(by: {
             $0.name?.common ?? "" < $1.name?.common ?? ""
         })
-        setFilterData()
+        displayFetchedList()
     }
     
     func networkCallFailed(error: FError?) {
