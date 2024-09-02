@@ -73,7 +73,7 @@ final class SideMenuViewController: BaseViewController {
         label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .center
-        label.text = "v1.0.0"
+        label.text = dataManager.appVersion
         return label
     }()
 

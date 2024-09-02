@@ -43,6 +43,7 @@ final class SettingsViewController: BaseViewController {
         displayView.footerView.addSubview(displayView.versionLabel)
         
         displayView.signoutButton.addTarget(self, action: #selector(handleSignout), for: .touchUpInside)
+        displayView.versionLabel.text = dataManager.appVersion
         
         displayView.bodyStack.anchor(
             top: view.topAnchor,

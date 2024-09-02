@@ -12,11 +12,6 @@ protocol DataManagerInjector {
     var dataManager: DataManager { get }
 }
 
-enum DataManagerKeys: String {
-    case userProfile
-    case allCountries
-}
-
 final class DataManager {
     
     // MARK: Init
@@ -28,34 +23,29 @@ final class DataManager {
     
     var allCountries: CountriesResponseList? {
         get {
-            if let data = UserDefaults.standard.data(forKey: DataManagerKeys.allCountries.rawValue) {
-                return try? JSONDecoder().decode(CountriesResponseList.self, from: data)
-            }
-            return nil
+            return CacheManager.shared.retrieveCachedObject(object: CountriesResponseList.self, key: .allCountries)
         }
         set(value){
-            if let encoded = try? JSONEncoder().encode(value) {
-                UserDefaults.standard.set(encoded, forKey: DataManagerKeys.allCountries.rawValue)
-            }
+            CacheManager.shared.cacheObject(object: value, key: .allCountries)
         }
     }
     
     var userProfile: UserProfile? {
         get {
-            if let data = UserDefaults.standard.data(forKey: DataManagerKeys.userProfile.rawValue) {
-                return try? JSONDecoder().decode(UserProfile.self, from: data)
-            }
-            return nil
+            return CacheManager.shared.retrieveCachedObject(object: UserProfile.self, key: .userProfile)
         }
         set(value){
-            if let encoded = try? JSONEncoder().encode(value) {
-                UserDefaults.standard.set(encoded, forKey: DataManagerKeys.userProfile.rawValue)
-            }
+            CacheManager.shared.cacheObject(object: value, key: .userProfile)
         }
     }
     
+    var appVersion: String {
+        "v\(InfoDicManager.getStringValue(key: .appVersion))(\(InfoDicManager.getStringValue(key: .appVersionBuild)))"
+    }
+    
     func logOut() {
-        userProfile = nil
+        CacheManager.shared.removeObject(key: .userProfile)
+        CacheManager.shared.removeObject(key: .allCountries)
         GIDSignIn.sharedInstance.signOut()
     }
 }
