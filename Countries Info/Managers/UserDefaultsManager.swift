@@ -8,6 +8,8 @@
 import Foundation
 
 protocol CacheManagerProtocol {
+    associatedtype T
+    static var shared: T { get }
     func cacheObject<T: Encodable>(object: T, key: CacheKey)
     func retrieveCachedObject<T: Decodable>(object: T.Type, key: CacheKey) -> T?
     func removeObject(key: CacheKey)
@@ -18,11 +20,11 @@ enum CacheKey: String {
     case allCountries
 }
 
-class CacheManager: CacheManagerProtocol {
-    static let shared: CacheManager = {
-        CacheManager()
+class UserDefaultCache: CacheManagerProtocol {
+    static let shared: UserDefaultCache = {
+        UserDefaultCache()
     }()
-    private static let userDefaults = UserDefaults.standard
+    private let userDefaults = UserDefaults.standard
     
     // MARK: Initialization
     private init() {}
@@ -32,11 +34,11 @@ class CacheManager: CacheManagerProtocol {
         let jsonEncoder = JSONEncoder()
         let data = try? jsonEncoder.encode(object)
         
-        Self.userDefaults.set(data, forKey: key.rawValue)
+        userDefaults.set(data, forKey: key.rawValue)
     }
     
     func retrieveCachedObject<T: Decodable>(object: T.Type, key: CacheKey) -> T? {
-        guard let data = Self.userDefaults.data(forKey: key.rawValue) else {
+        guard let data = userDefaults.data(forKey: key.rawValue) else {
             return nil
         }
         let jsonDecoder = JSONDecoder()
@@ -45,6 +47,6 @@ class CacheManager: CacheManagerProtocol {
     }
     
     func removeObject(key: CacheKey) {
-        Self.userDefaults.removeObject(forKey: key.rawValue)
+        userDefaults.removeObject(forKey: key.rawValue)
     }
 }

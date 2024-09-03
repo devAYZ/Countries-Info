@@ -23,19 +23,19 @@ final class DataManager {
     
     var allCountries: CountriesResponseList? {
         get {
-            return CacheManager.shared.retrieveCachedObject(object: CountriesResponseList.self, key: .allCountries)
+            return FileManagerCache.shared.retrieveCachedObject(object: CountriesResponseList.self, key: .allCountries)
         }
         set(value){
-            CacheManager.shared.cacheObject(object: value, key: .allCountries)
+            FileManagerCache.shared.cacheObject(object: value, key: .allCountries)
         }
     }
     
     var userProfile: UserProfile? {
         get {
-            return CacheManager.shared.retrieveCachedObject(object: UserProfile.self, key: .userProfile)
+            return UserDefaultCache.shared.retrieveCachedObject(object: UserProfile.self, key: .userProfile)
         }
         set(value){
-            CacheManager.shared.cacheObject(object: value, key: .userProfile)
+            UserDefaultCache.shared.cacheObject(object: value, key: .userProfile)
         }
     }
     
@@ -44,8 +44,8 @@ final class DataManager {
     }
     
     func logOut() {
-        CacheManager.shared.removeObject(key: .userProfile)
-        CacheManager.shared.removeObject(key: .allCountries)
+        UserDefaultCache.shared.removeObject(key: .userProfile)
+        FileManagerCache.shared.removeObject(key: .allCountries)
         GIDSignIn.sharedInstance.signOut()
     }
 }

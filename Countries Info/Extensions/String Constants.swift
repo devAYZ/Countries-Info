@@ -8,6 +8,9 @@
 import Foundation
 
 struct SConstants {
+    // App
+    static let appName = "Countries Info"
+    
     // Error
     static let error = "Error"
     static let tryAgain = "Try Again"
