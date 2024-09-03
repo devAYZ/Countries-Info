@@ -118,7 +118,7 @@ final class SideMenuViewController: BaseViewController {
             paddingRight: 10)
         
         footerView.anchor(
-            bottom: view.bottomAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
             width: 80,
             height: 30)
         footerView.centerX(inView: view)

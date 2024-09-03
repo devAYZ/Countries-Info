@@ -55,7 +55,7 @@ final class SettingsViewController: BaseViewController {
         displayView.infoStack.centerX(inView: view)
         
         displayView.footerView.anchor(
-            bottom: view.bottomAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
             width: 80,
             height: 30)
         displayView.footerView.centerX(inView: view)
