@@ -104,9 +104,9 @@ final class HomeTVCell: UITableViewCell {
     }
     
     func setupCell(_ data: CountriesResponse?) {
-        countryLabel.text = data?.name?.common
-        cityLabel.text = data?.capital?.first
-        currencyLabel.text = data?.currencies?.first?.value.symbol
+        countryLabel.text = data?.name?.common ?? .orNA
+        cityLabel.text = data?.capital?.first ?? .orNA
+        currencyLabel.text = data?.currencies?.first?.value.symbol ?? .orNA
         iconImageView.loadImage(from: data?.flags?.png)
     }
 }

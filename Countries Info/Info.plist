@@ -30,5 +30,7 @@
 			</array>
 		</dict>
 	</dict>
+	<key>RestCountriesBaseURL</key>
+	<string>https://restcountries.com</string>
 </dict>
 </plist>

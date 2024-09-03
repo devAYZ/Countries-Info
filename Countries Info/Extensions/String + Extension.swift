@@ -7,12 +7,6 @@
 
 import Foundation
 
-extension String {    
-    static var orNA: String {
-        "n/a"
-    }
-}
-
 extension String? {
     static var orNA: String {
         "n/a"

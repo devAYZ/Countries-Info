@@ -25,8 +25,9 @@ final class NetworkClass: NetworkClassProtocol {
     ///   - urlString: urlString
     ///   - completion: completion handler
     func makeNetworkCall_AF<T: Decodable>(urlString: Endpoint, completion: @escaping (AFDataResponse<T>) -> ()){
-        print(SConstants.startingNC) // Track network call
-        AF.request(urlString.rawValue).responseDecodable(of: T.self) { response in
+        let requestUrl = InfoDicManager.getStringValue(key: .restBaseUrl) + urlString.rawValue
+        print(SConstants.startingNC, requestUrl) // Track network call
+        AF.request(requestUrl).responseDecodable(of: T.self) { response in
             print(SConstants.completedNC)
             completion(response)
         }

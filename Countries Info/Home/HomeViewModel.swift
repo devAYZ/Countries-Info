@@ -20,8 +20,6 @@ class HomeViewModel {
     
     // MARK: Properties
     var networkClass: NetworkClassProtocol?
-    //var networkCallSuccess: ((CountriesResponseList?) -> Void)?
-    //var networkCallFailed: ((FError?) -> Void)?
     var showLoading: ((Bool) -> Void)?
     var view: HomeView?
 
