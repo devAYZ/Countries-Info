@@ -31,11 +31,16 @@ final class HomeViewTests: XCTestCase {
         super.tearDown()
     }
     
-    /// `test_searchController_placeholder`
-    func test_searchController_placeholder() {
+    /// `test_searchController_validPlaceholder`
+    func test_searchController_validPlaceholder() {
         let placeholderInUse = mockDisplayView.searchController.searchBar.placeholder
         let validPlaceholder = "Search by: Name, Capital, Currency"
         XCTAssertEqual(placeholderInUse, validPlaceholder)
     }
     
+    /// `test_searchController_wrongPlaceholder`
+    func test_searchController_wrongPlaceholder() {
+        let placeholderInUse = mockDisplayView.searchController.searchBar.placeholder
+        XCTAssertNotEqual(placeholderInUse, "Search")
+    }
 }
