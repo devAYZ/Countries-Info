@@ -24,7 +24,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate, DataManagerInjector {
                 // Show the app's signed-out state.
             } else {
                 // Show the app's signed-in state.
-                self.dataManager.userProfile = user?.profile
+                self.dataManager.userProfile = .init(
+                    name: user?.profile?.name,
+                    email: user?.profile?.email,
+                    imageURL: user?.profile?.imageURL(withDimension: .image200)
+                )
             }
         }
         

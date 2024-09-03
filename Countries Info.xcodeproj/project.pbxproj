@@ -27,12 +27,25 @@
 		0435E9242C78ED3E00F0A472 /* MockHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9232C78ED3E00F0A472 /* MockHomeView.swift */; };
 		0435E9252C78F61B00F0A472 /* HomeModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E90C2C78A16E00F0A472 /* HomeModels.swift */; };
 		0435E92C2C78F8B200F0A472 /* HomeViewModelTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E92B2C78F8B200F0A472 /* HomeViewModelTests.swift */; };
+		043618C32C86D7D1002C59CB /* FileManagerCache.swift in Sources */ = {isa = PBXBuildFile; fileRef = 043618C22C86D7D1002C59CB /* FileManagerCache.swift */; };
 		043904B12C7C4A3C00333D9A /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = 043904B02C7C4A3C00333D9A /* GoogleSignIn */; };
 		043904B32C7C4AAA00333D9A /* Alamofire in Frameworks */ = {isa = PBXBuildFile; productRef = 043904B22C7C4AAA00333D9A /* Alamofire */; };
 		043904B42C7C4D8500333D9A /* NetworkModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9112C78A72500F0A472 /* NetworkModels.swift */; };
 		043904B62C7C4E1F00333D9A /* String Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04357E712C79D7EE00A2C69B /* String Constants.swift */; };
 		043904B72C7C5C5A00333D9A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6EE2C78C6C600DF058D /* HomeViewModel.swift */; };
 		043904B82C7C5CE800333D9A /* NetworkClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E90F2C78A60D00F0A472 /* NetworkClass.swift */; };
+		044D3E552C84FCA100744CE4 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D3E542C84FCA100744CE4 /* String + Extension.swift */; };
+		044D3E572C8572A100744CE4 /* UserDefaultsManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D3E562C8572A100744CE4 /* UserDefaultsManager.swift */; };
+		044D3E592C85792300744CE4 /* InfoDicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D3E582C85792300744CE4 /* InfoDicManager.swift */; };
+		04A1D8042C86FF2B0035ED77 /* HomeViewTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 04A1D8032C86FF2B0035ED77 /* HomeViewTests.swift */; };
+		04A1D8052C86FF7D0035ED77 /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E42C7880A200DF058D /* HomeViews.swift */; };
+		04A1D8062C86FFC30035ED77 /* InfoDicManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D3E582C85792300744CE4 /* InfoDicManager.swift */; };
+		04A1D8072C86FFD90035ED77 /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812392C77393500E7EBC8 /* UIView + Extension.swift */; };
+		04A1D8082C86FFFC0035ED77 /* HomeTVCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8123B2C77398500E7EBC8 /* HomeTVCell.swift */; };
+		04A1D8092C8700080035ED77 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 044D3E542C84FCA100744CE4 /* String + Extension.swift */; };
+		04A1D80A2C8700130035ED77 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9012C77C1C500F0A472 /* UIImageView + Extension.swift */; };
+		04A1D80B2C87001E0035ED77 /* CGFloat + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8123D2C773FB300E7EBC8 /* CGFloat + Extension.swift */; };
+		04A1D80D2C8700530035ED77 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04A1D80C2C8700530035ED77 /* Kingfisher */; };
 		B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E42C7880A200DF058D /* HomeViews.swift */; };
 		B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E62C78835600DF058D /* SettingsViews.swift */; };
 		B730E6EB2C788C1200DF058D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6EA2C788C1200DF058D /* DetailsViewController.swift */; };
@@ -96,6 +109,11 @@
 		0435E9142C78E3EF00F0A472 /* MockNetworkClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockNetworkClass.swift; sourceTree = "<group>"; };
 		0435E9232C78ED3E00F0A472 /* MockHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockHomeView.swift; sourceTree = "<group>"; };
 		0435E92B2C78F8B200F0A472 /* HomeViewModelTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewModelTests.swift; sourceTree = "<group>"; };
+		043618C22C86D7D1002C59CB /* FileManagerCache.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManagerCache.swift; sourceTree = "<group>"; };
+		044D3E542C84FCA100744CE4 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		044D3E562C8572A100744CE4 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
+		044D3E582C85792300744CE4 /* InfoDicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDicManager.swift; sourceTree = "<group>"; };
+		04A1D8032C86FF2B0035ED77 /* HomeViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
 		B730E6E42C7880A200DF058D /* HomeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViews.swift; sourceTree = "<group>"; };
 		B730E6E62C78835600DF058D /* SettingsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViews.swift; sourceTree = "<group>"; };
 		B730E6EA2C788C1200DF058D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -131,6 +149,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A1D80D2C8700530035ED77 /* Kingfisher in Frameworks */,
 				043904B12C7C4A3C00333D9A /* GoogleSignIn in Frameworks */,
 				043904B32C7C4AAA00333D9A /* Alamofire in Frameworks */,
 			);
@@ -263,6 +282,7 @@
 			isa = PBXGroup;
 			children = (
 				0435E92B2C78F8B200F0A472 /* HomeViewModelTests.swift */,
+				04A1D8032C86FF2B0035ED77 /* HomeViewTests.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -298,6 +318,9 @@
 				B7A812282C772C1600E7EBC8 /* BaseViewController.swift */,
 				B7A8122B2C772C9900E7EBC8 /* DataManager.swift */,
 				B7A8122E2C772D7400E7EBC8 /* ManagerModels.swift */,
+				044D3E562C8572A100744CE4 /* UserDefaultsManager.swift */,
+				043618C22C86D7D1002C59CB /* FileManagerCache.swift */,
+				044D3E582C85792300744CE4 /* InfoDicManager.swift */,
 			);
 			path = Managers;
 			sourceTree = "<group>";
@@ -331,6 +354,7 @@
 				0435E8FF2C77B9ED00F0A472 /* UIViewController + Extension.swift */,
 				B7A8123D2C773FB300E7EBC8 /* CGFloat + Extension.swift */,
 				B7A8123F2C77499100E7EBC8 /* Int + Extension.swift */,
+				044D3E542C84FCA100744CE4 /* String + Extension.swift */,
 				04357E712C79D7EE00A2C69B /* String Constants.swift */,
 			);
 			path = Extensions;
@@ -379,6 +403,7 @@
 			packageProductDependencies = (
 				043904B02C7C4A3C00333D9A /* GoogleSignIn */,
 				043904B22C7C4AAA00333D9A /* Alamofire */,
+				04A1D80C2C8700530035ED77 /* Kingfisher */,
 			);
 			productName = "Countries InfoTests";
 			productReference = 040DF3002C76272F007034C9 /* Countries InfoTests.xctest */;
@@ -482,9 +507,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				043618C32C86D7D1002C59CB /* FileManagerCache.swift in Sources */,
 				0435E9062C77E1B200F0A472 /* SideMenuViewController.swift in Sources */,
 				B7A812232C772B0B00E7EBC8 /* AppCoordinator.swift in Sources */,
 				0435E9002C77B9ED00F0A472 /* UIViewController + Extension.swift in Sources */,
+				044D3E552C84FCA100744CE4 /* String + Extension.swift in Sources */,
 				B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */,
 				040DF2EE2C762729007034C9 /* AppDelegate.swift in Sources */,
 				0435E9102C78A60D00F0A472 /* NetworkClass.swift in Sources */,
@@ -498,7 +525,9 @@
 				B7A812262C772B4000E7EBC8 /* InterceptorViewController.swift in Sources */,
 				B7A8123C2C77398500E7EBC8 /* HomeTVCell.swift in Sources */,
 				B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */,
+				044D3E592C85792300744CE4 /* InfoDicManager.swift in Sources */,
 				B730E6EB2C788C1200DF058D /* DetailsViewController.swift in Sources */,
+				044D3E572C8572A100744CE4 /* UserDefaultsManager.swift in Sources */,
 				B7A812322C77372200E7EBC8 /* SignInViewController.swift in Sources */,
 				B7A8122F2C772D7400E7EBC8 /* ManagerModels.swift in Sources */,
 				B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */,
@@ -517,12 +546,20 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				04A1D8082C86FFFC0035ED77 /* HomeTVCell.swift in Sources */,
 				043904B42C7C4D8500333D9A /* NetworkModels.swift in Sources */,
+				04A1D8092C8700080035ED77 /* String + Extension.swift in Sources */,
+				04A1D8052C86FF7D0035ED77 /* HomeViews.swift in Sources */,
 				0435E9252C78F61B00F0A472 /* HomeModels.swift in Sources */,
 				043904B72C7C5C5A00333D9A /* HomeViewModel.swift in Sources */,
+				04A1D8062C86FFC30035ED77 /* InfoDicManager.swift in Sources */,
 				0435E91B2C78E84200F0A472 /* MockNetworkClass.swift in Sources */,
 				0435E9242C78ED3E00F0A472 /* MockHomeView.swift in Sources */,
+				04A1D80A2C8700130035ED77 /* UIImageView + Extension.swift in Sources */,
 				043904B82C7C5CE800333D9A /* NetworkClass.swift in Sources */,
+				04A1D8072C86FFD90035ED77 /* UIView + Extension.swift in Sources */,
+				04A1D80B2C87001E0035ED77 /* CGFloat + Extension.swift in Sources */,
+				04A1D8042C86FF2B0035ED77 /* HomeViewTests.swift in Sources */,
 				043904B62C7C4E1F00333D9A /* String Constants.swift in Sources */,
 				0435E92C2C78F8B200F0A472 /* HomeViewModelTests.swift in Sources */,
 			);
@@ -686,7 +723,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = LWU8V4B258;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Countries Info/Info.plist";
@@ -716,7 +753,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2;
 				DEVELOPMENT_TEAM = LWU8V4B258;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "Countries Info/Info.plist";
@@ -905,6 +942,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = B7A8121B2C77298300E7EBC8 /* XCRemoteSwiftPackageReference "Alamofire" */;
 			productName = Alamofire;
+		};
+		04A1D80C2C8700530035ED77 /* Kingfisher */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = B7A8121E2C7729CB00E7EBC8 /* XCRemoteSwiftPackageReference "Kingfisher" */;
+			productName = Kingfisher;
 		};
 		B7A812162C77289A00E7EBC8 /* SideMenu */ = {
 			isa = XCSwiftPackageProductDependency;

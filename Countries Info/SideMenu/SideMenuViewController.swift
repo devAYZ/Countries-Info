@@ -73,7 +73,7 @@ final class SideMenuViewController: BaseViewController {
         label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .center
-        label.text = "v1.0.0"
+        label.text = dataManager.appVersion
         return label
     }()
 
@@ -89,7 +89,7 @@ final class SideMenuViewController: BaseViewController {
         
         nameLabel.text = dataManager.userProfile?.name
         emailLabel.text = dataManager.userProfile?.email
-        iconImageView.loadImage(from: dataManager.userProfile?.imageURL(withDimension: 200))
+        iconImageView.loadImage(from: dataManager.userProfile?.imageURL)
     }
     
     private func setupViews() {
@@ -118,7 +118,7 @@ final class SideMenuViewController: BaseViewController {
             paddingRight: 10)
         
         footerView.anchor(
-            bottom: view.bottomAnchor,
+            bottom: view.safeAreaLayoutGuide.bottomAnchor,
             width: 80,
             height: 30)
         footerView.centerX(inView: view)

@@ -27,7 +27,7 @@ class MockNetworkClass: NetworkClassProtocol {
          */
     }
     
-    func fetchCountriesSampleResponse<T>() -> AFDataResponse<T> { //DataResponse<T, AFError> {
+    func fetchCountriesSampleResponse<T>() -> AFDataResponse<T> {
         return DataResponse(
             request: nil, response: nil, data: nil, metrics: nil, serializationDuration: 1,
             result: .success(

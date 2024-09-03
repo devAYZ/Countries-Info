@@ -81,7 +81,6 @@ final class SettingsViews: UIView {
         label.textColor = .label
         label.font = .systemFont(ofSize: 16, weight: .regular)
         label.textAlignment = .center
-        label.text = "v1.0.0"
         return label
     }()
 
