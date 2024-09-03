@@ -7,7 +7,7 @@
 
 import UIKit
 
-final class HomeViews: UIView {
+class HomeViews: UIView {
 
     // MARK: Views
     lazy var containerView: UIView = {
