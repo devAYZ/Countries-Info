@@ -40,7 +40,7 @@ class HomeViewModel {
             showLoading?(false)
             switch response.result {
             case .success(let data):
-                view?.networkCallSuccess(data: data)
+                view?.networkCallSuccess(data: data.filter{ $0.currencies != nil } )
             case .failure(let error):
                 view?.networkCallFailed(error: error)
             }
