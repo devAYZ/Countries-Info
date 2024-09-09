@@ -8,13 +8,14 @@ Features Pages:
 
 
 ## App Design
+- App design sketch on [excalidraw.com](https://excalidraw.com/#json=gwVmabhSE-E39JennRs8Y,mg1-w-W0Lw161FAf8FUfSw)
 
 
 ## Demo Link
 - Image Assets and Recording [link](https://drive.google.com/drive/folders/1S8acB21JKgUImyYkqiWOeI76iK8GYqL1?usp=share_link)
 
 
-## Project File Requirements
+## Project Info
 - Swift 5.0+
 - UIKit - Programmatic (I will love to convert this to SwiftUI view in coming days)
 - iOS 14.0+
