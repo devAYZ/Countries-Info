@@ -25,14 +25,19 @@ final class DetailsViewController: BaseViewController {
         displayView?.topLabel.text = countryData?.name?.official ?? .orNA
         
         displayView?.countryNameValue.text = countryData?.name?.common ?? .orNA
-        displayView?.capitalNameValue.text = countryData?.capital?.first ?? .orNA
+        displayView?.capitalNameValue.text = countryData?.capital?.joined(separator: ", ") ?? .orNA
         displayView?.currencyNameValue.text = countryData?.currencies?.first?.value.name ?? .orNA
         displayView?.currencySignValue.text = countryData?.currencies?.first?.value.symbol ?? .orNA
         displayView?.countryFlagValue.text = countryData?.flag ?? .orNA
-        displayView?.continentNameValue.text = countryData?.continents?.first ?? .orNA
-        displayView?.timeZoneValue.text = countryData?.timezones?.first ?? .orNA
+        displayView?.continentNameValue.text = countryData?.continents?.joined(separator: ", ") ?? .orNA
+        displayView?.timeZoneValue.text = countryData?.timezones?.joined(separator: ", ") ?? .orNA
         displayView?.populationValue.text = (countryData?.population ?? 0).addCommaDelimiter()
-
+        displayView?.startOFWeekValue.text = countryData?.startOfWeek?.capitalized ?? .orNA
+        displayView?.independentValue.text = countryData?.independent?.description.capitalized
+        displayView?.unMemberCheckValue.text = countryData?.unMember?.description.capitalized
+        displayView?.bordersValue.text = countryData?.borders?.joined(separator: ", ") ?? .orNA
+        displayView?.landlockedCheckValue.text = countryData?.landlocked?.description.capitalized
+        displayView?.latlngValue.text = countryData?.latlng?.compactMap{ String($0) }.joined(separator: ", ") ?? .orNA
     }
     
     func attachViews(_ displayView: DetailsViews) {

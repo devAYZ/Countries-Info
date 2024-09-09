@@ -49,6 +49,15 @@ class MockNetworkClass: NetworkClassProtocol {
                         timezones: ["UTC+01:00"],
                         continents: ["Africa"],
                         startOfWeek: "Monday"
+                    ),
+                    CountriesResponse(
+                        name: .init(common: "Artic Region", official: "Artic Region"),
+                        currencies: nil,
+                        capital: ["Artic Capital"],
+                        population: 1_000,
+                        timezones: ["UTC+020:00"],
+                        continents: ["Pacific"],
+                        startOfWeek: "Zesday"
                     )
                 ] as! T
             )

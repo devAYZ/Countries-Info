@@ -45,7 +45,6 @@ final class DataManager {
     
     func logOut() {
         UserDefaultCache.shared.removeObject(key: .userProfile)
-        FileManagerCache.shared.removeObject(key: .allCountries)
         GIDSignIn.sharedInstance.signOut()
     }
 }

@@ -32,9 +32,14 @@ class UserDefaultCache: CacheManagerProtocol {
     // Cache - Objects
     func cacheObject<T: Encodable>(object: T, key: CacheKey) {
         let jsonEncoder = JSONEncoder()
-        let data = try? jsonEncoder.encode(object)
         
-        userDefaults.set(data, forKey: key.rawValue)
+        do {
+            let data = try jsonEncoder.encode(object)
+            userDefaults.set(data, forKey: key.rawValue)
+        } catch {
+            print(error)
+            fatalError(error.localizedDescription)
+        }
     }
     
     func retrieveCachedObject<T: Decodable>(object: T.Type, key: CacheKey) -> T? {
@@ -42,8 +47,13 @@ class UserDefaultCache: CacheManagerProtocol {
             return nil
         }
         let jsonDecoder = JSONDecoder()
-        let object = try? jsonDecoder.decode(T.self, from: data)
-        return object
+        do {
+            let object = try jsonDecoder.decode(T.self, from: data)
+            return object
+        } catch {
+            print(error)
+            fatalError(error.localizedDescription)
+        }
     }
     
     func removeObject(key: CacheKey) {

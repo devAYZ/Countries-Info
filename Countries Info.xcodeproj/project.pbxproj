@@ -56,7 +56,7 @@
 		B7A8121A2C77291A00E7EBC8 /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = B7A812192C77291A00E7EBC8 /* GoogleSignIn */; };
 		B7A812202C7729CB00E7EBC8 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = B7A8121F2C7729CB00E7EBC8 /* Kingfisher */; };
 		B7A812232C772B0B00E7EBC8 /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812222C772B0B00E7EBC8 /* AppCoordinator.swift */; };
-		B7A812262C772B4000E7EBC8 /* InterceptorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812252C772B4000E7EBC8 /* InterceptorViewController.swift */; };
+		B7A812262C772B4000E7EBC8 /* NavigationDirectorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812252C772B4000E7EBC8 /* NavigationDirectorViewController.swift */; };
 		B7A812292C772C1600E7EBC8 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A812282C772C1600E7EBC8 /* BaseViewController.swift */; };
 		B7A8122C2C772C9900E7EBC8 /* DataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8122B2C772C9900E7EBC8 /* DataManager.swift */; };
 		B7A8122F2C772D7400E7EBC8 /* ManagerModels.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8122E2C772D7400E7EBC8 /* ManagerModels.swift */; };
@@ -121,7 +121,7 @@
 		B730E6EE2C78C6C600DF058D /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
 		B730E6F02C78D74100DF058D /* DetailsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViews.swift; sourceTree = "<group>"; };
 		B7A812222C772B0B00E7EBC8 /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
-		B7A812252C772B4000E7EBC8 /* InterceptorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterceptorViewController.swift; sourceTree = "<group>"; };
+		B7A812252C772B4000E7EBC8 /* NavigationDirectorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationDirectorViewController.swift; sourceTree = "<group>"; };
 		B7A812282C772C1600E7EBC8 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		B7A8122B2C772C9900E7EBC8 /* DataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataManager.swift; sourceTree = "<group>"; };
 		B7A8122E2C772D7400E7EBC8 /* ManagerModels.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ManagerModels.swift; sourceTree = "<group>"; };
@@ -307,7 +307,7 @@
 		B7A812242C772B2600E7EBC8 /* NavigationDirector */ = {
 			isa = PBXGroup;
 			children = (
-				B7A812252C772B4000E7EBC8 /* InterceptorViewController.swift */,
+				B7A812252C772B4000E7EBC8 /* NavigationDirectorViewController.swift */,
 			);
 			path = NavigationDirector;
 			sourceTree = "<group>";
@@ -522,7 +522,7 @@
 				B7A8122C2C772C9900E7EBC8 /* DataManager.swift in Sources */,
 				B7A8123A2C77393500E7EBC8 /* UIView + Extension.swift in Sources */,
 				0435E9122C78A72500F0A472 /* NetworkModels.swift in Sources */,
-				B7A812262C772B4000E7EBC8 /* InterceptorViewController.swift in Sources */,
+				B7A812262C772B4000E7EBC8 /* NavigationDirectorViewController.swift in Sources */,
 				B7A8123C2C77398500E7EBC8 /* HomeTVCell.swift in Sources */,
 				B7A812372C7737C900E7EBC8 /* HomeViewController.swift in Sources */,
 				044D3E592C85792300744CE4 /* InfoDicManager.swift in Sources */,

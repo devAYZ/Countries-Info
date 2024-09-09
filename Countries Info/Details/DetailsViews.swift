@@ -120,6 +120,36 @@ class DetailsViews: UIView {
         itemValueLabel()
     }()
     
+    /// `startOFWeekValue`
+    lazy var startOFWeekValue: UILabel = {
+        itemValueLabel()
+    }()
+    
+    /// `independentValue`
+    lazy var independentValue: UILabel = {
+        itemValueLabel()
+    }()
+    
+    /// `unMemberCheckValue`
+    lazy var unMemberCheckValue: UILabel = {
+        itemValueLabel()
+    }()
+    
+    /// `bordersValue`
+    lazy var bordersValue: UILabel = {
+        itemValueLabel()
+    }()
+    
+    /// `landlockedCheckValue`
+    lazy var landlockedCheckValue: UILabel = {
+        itemValueLabel()
+    }()
+    
+    /// `latlngValue`
+    lazy var latlngValue: UILabel = {
+        itemValueLabel()
+    }()
+    
     /// `Body Stack View`
     lazy var bottomStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
@@ -130,7 +160,13 @@ class DetailsViews: UIView {
             listHStackView(itemTitleLabel(text: "Time Zone"), timeZoneValue),
             listHStackView(itemTitleLabel(text: "Population"), populationValue),
             listHStackView(itemTitleLabel(text: "Currency Name"), currencyNameValue),
-            listHStackView(itemTitleLabel(text: SConstants.currencySign), currencySignValue)
+            listHStackView(itemTitleLabel(text: SConstants.currencySign), currencySignValue),
+            listHStackView(itemTitleLabel(text: "Start of Week"), startOFWeekValue),
+            listHStackView(itemTitleLabel(text: "Independent ?"), independentValue),
+            listHStackView(itemTitleLabel(text: "UN Member ?"), unMemberCheckValue),
+            listHStackView(itemTitleLabel(text: "Land borders"), bordersValue),
+            listHStackView(itemTitleLabel(text: "Land locked ?"), landlockedCheckValue),
+            listHStackView(itemTitleLabel(text: "Lat - Long"), latlngValue)
         ])
         stackView.axis = .vertical
         stackView.alignment = .fill

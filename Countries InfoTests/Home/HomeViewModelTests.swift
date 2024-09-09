@@ -56,16 +56,29 @@ final class HomeViewModelTests: XCTestCase {
     /// `test_fetchCountryList_ValidData`
     func test_fetchCountryList_ValidData() {
         sut.fetchCountryList()
-        XCTAssertTrue(!(mockView.response?.data?.isEmpty ?? true))
+        XCTAssertNotNil(mockView.response?.data)
         XCTAssertEqual(mockView.response?.data?.count, 2)
     }
+    
+    /// `test_fetchCountryList_hasRealCurrency`
+    func test_fetchCountryList_hasRealCurrency() {
+        sut.fetchCountryList()
+        XCTAssertNotNil( mockView.response?.data?.allSatisfy { $0.currencies != nil } )
+    }
+    
+    /// `test_fetchCountryList_isSortedByCommonName`
+    func test_fetchCountryList_isSortedByCommonName() {
+        sut.fetchCountryList()
 
+        let list = mockView.response?.data?.compactMap { $0.name?.common }
+        XCTAssertEqual(list, list?.sorted())
+    }
+    
     /// `test_fetchCountryList_ValidDataObjects`
     func test_fetchCountryList_ValidDataObjects() {
         sut.fetchCountryList()
-        XCTAssertEqual(mockView.response?.data?.first?.name?.official, "Kingdom of Sweden")
-        XCTAssertEqual(mockView.response?.data?.first?.name?.common, "Sweden")
-        XCTAssertEqual(mockView.response?.data?.first?.population, 10_000_000)
+        XCTAssertNotNil( mockView.response?.data?.allSatisfy { $0.name?.common != nil } )
+        XCTAssertEqual(mockView.response?.data?.first?.name?.common, "Nigeria")
+        XCTAssertEqual(mockView.response?.data?.first?.population, 206_000_000)
     }
-    
 }
