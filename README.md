@@ -54,6 +54,7 @@ Features Pages:
 
 ## Data Storage
 - User Default
+- File Manager
 
 
 ## Font
