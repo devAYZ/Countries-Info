@@ -77,13 +77,13 @@ final class SignInViewController: BaseViewController {
     private func Google_Signin() {
         GIDSignIn.sharedInstance.signIn(withPresenting: self) { signInResult, error in
             guard error == nil else {
-                self.showAlert(title: "Error", message: error?.localizedDescription, completion: nil)
+                self.showAlert(title: SConstants.error, message: error?.localizedDescription, completion: nil)
                 return
             }
             
             // If sign in succeeded, display the app's main content View.
             guard let result = signInResult else {
-                self.showAlert(title: "Error", message: "Data Not Found", completion: nil)
+                self.showAlert(title: SConstants.error, message: SConstants.dataNF, completion: nil)
                 return
             }
             self.dataManager.userProfile = .init(

@@ -15,6 +15,7 @@ struct SConstants {
     static let error = "Error"
     static let tryAgain = "Try Again"
     static let dataNA = "Data not Available"
+    static let dataNF = "Data not Found"
     static let areYouSure = "Are you sure?"
     static let ok = "OK"
     static let cancel = "Cancel"
