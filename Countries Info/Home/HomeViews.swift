@@ -39,7 +39,7 @@ class HomeViews: UIView {
         let placeholderFont: [NSAttributedString.Key: UIFont] = [
             .font: .italicSystemFont(ofSize: 15)]
         searchTextField?.attributedPlaceholder = NSAttributedString(
-            string: SConstants.searchHint,
+            string: SConstants.searchHint.localize(),
             attributes: placeholderFont)
         return search
     }()

@@ -61,7 +61,11 @@ final class HomeViewController: BaseViewController {
         view.backgroundColor = .systemBackground
         guard let displayView = displayView else { return }
         
-        title = SConstants.favCountriesList
+        if #available(iOS 15, *) {
+            title = .init(localized: .init(SConstants.favCountriesList))
+        } else {
+            title = SConstants.favCountriesList.localize()
+        }
         
         displayView.countryTableView.dataSource = self
         displayView.countryTableView.delegate = self

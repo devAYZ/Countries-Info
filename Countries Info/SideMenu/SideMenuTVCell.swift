@@ -75,7 +75,7 @@ class SideMenuTVCell: UITableViewCell {
     }
     
     func setupCell(list: SideMenuList) {
-        menuLabel.text = list.menuTitle
+        menuLabel.text = list.menuTitle.localize()
         menuImageView.image = list.menuImage
     }
 

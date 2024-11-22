@@ -23,6 +23,16 @@ struct SideMenuList {
 enum SideMenuOptions: String {
     case home
     case settings
+    
+    var translate: String {
+        return NSLocalizedString(
+            self.rawValue,
+            tableName: "Localizable",
+            bundle: .main,
+            value: self.rawValue,
+            comment: self.rawValue
+        )
+    }
 }
 
 class UserProfile: Codable {

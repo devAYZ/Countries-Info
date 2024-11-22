@@ -153,20 +153,20 @@ class DetailsViews: UIView {
     /// `Body Stack View`
     lazy var bottomStackView: UIStackView = {
         let stackView = UIStackView(arrangedSubviews: [
-            listHStackView(itemTitleLabel(text: SConstants.flag), countryFlagValue),
-            listHStackView(itemTitleLabel(text: SConstants.countryName), countryNameValue),
-            listHStackView(itemTitleLabel(text: SConstants.capitalCity), capitalNameValue),
-            listHStackView(itemTitleLabel(text: "Continent Name"), continentNameValue),
-            listHStackView(itemTitleLabel(text: "Time Zone"), timeZoneValue),
-            listHStackView(itemTitleLabel(text: "Population"), populationValue),
-            listHStackView(itemTitleLabel(text: "Currency Name"), currencyNameValue),
-            listHStackView(itemTitleLabel(text: SConstants.currencySign), currencySignValue),
-            listHStackView(itemTitleLabel(text: "Start of Week"), startOFWeekValue),
-            listHStackView(itemTitleLabel(text: "Independent ?"), independentValue),
-            listHStackView(itemTitleLabel(text: "UN Member ?"), unMemberCheckValue),
-            listHStackView(itemTitleLabel(text: "Land borders"), bordersValue),
-            listHStackView(itemTitleLabel(text: "Land locked ?"), landlockedCheckValue),
-            listHStackView(itemTitleLabel(text: "Lat - Long"), latlngValue)
+            listHStackView(itemTitleLabel(text: SConstants.flag.localize()), countryFlagValue),
+            listHStackView(itemTitleLabel(text: SConstants.countryName.localize()), countryNameValue),
+            listHStackView(itemTitleLabel(text: SConstants.capitalCity.localize()), capitalNameValue),
+            listHStackView(itemTitleLabel(text: SConstants.continentName.localize()), continentNameValue),
+            listHStackView(itemTitleLabel(text: SConstants.timeZone.localize()), timeZoneValue),
+            listHStackView(itemTitleLabel(text: SConstants.population.localize()), populationValue),
+            listHStackView(itemTitleLabel(text: SConstants.currencyName.localize()), currencyNameValue),
+            listHStackView(itemTitleLabel(text: SConstants.currencySign.localize()), currencySignValue),
+            listHStackView(itemTitleLabel(text: SConstants.startOfWeek.localize()), startOFWeekValue),
+            listHStackView(itemTitleLabel(text: SConstants.independent.localize()), independentValue),
+            listHStackView(itemTitleLabel(text: SConstants.UNMember.localize()), unMemberCheckValue),
+            listHStackView(itemTitleLabel(text: SConstants.landborders.localize()), bordersValue),
+            listHStackView(itemTitleLabel(text: SConstants.landLocked.localize()), landlockedCheckValue),
+            listHStackView(itemTitleLabel(text: SConstants.latLong.localize()), latlngValue)
         ])
         stackView.axis = .vertical
         stackView.alignment = .fill
