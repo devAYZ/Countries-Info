@@ -46,6 +46,7 @@
 		04A1D80A2C8700130035ED77 /* UIImageView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0435E9012C77C1C500F0A472 /* UIImageView + Extension.swift */; };
 		04A1D80B2C87001E0035ED77 /* CGFloat + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B7A8123D2C773FB300E7EBC8 /* CGFloat + Extension.swift */; };
 		04A1D80D2C8700530035ED77 /* Kingfisher in Frameworks */ = {isa = PBXBuildFile; productRef = 04A1D80C2C8700530035ED77 /* Kingfisher */; };
+		3A0953782CF0117800C25312 /* Localizable.xcstrings in Resources */ = {isa = PBXBuildFile; fileRef = 3A0953772CF0117800C25312 /* Localizable.xcstrings */; };
 		B730E6E52C7880A200DF058D /* HomeViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E42C7880A200DF058D /* HomeViews.swift */; };
 		B730E6E72C78835600DF058D /* SettingsViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6E62C78835600DF058D /* SettingsViews.swift */; };
 		B730E6EB2C788C1200DF058D /* DetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B730E6EA2C788C1200DF058D /* DetailsViewController.swift */; };
@@ -114,6 +115,7 @@
 		044D3E562C8572A100744CE4 /* UserDefaultsManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserDefaultsManager.swift; sourceTree = "<group>"; };
 		044D3E582C85792300744CE4 /* InfoDicManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoDicManager.swift; sourceTree = "<group>"; };
 		04A1D8032C86FF2B0035ED77 /* HomeViewTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewTests.swift; sourceTree = "<group>"; };
+		3A0953772CF0117800C25312 /* Localizable.xcstrings */ = {isa = PBXFileReference; lastKnownFileType = text.json.xcstrings; path = Localizable.xcstrings; sourceTree = "<group>"; };
 		B730E6E42C7880A200DF058D /* HomeViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViews.swift; sourceTree = "<group>"; };
 		B730E6E62C78835600DF058D /* SettingsViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViews.swift; sourceTree = "<group>"; };
 		B730E6EA2C788C1200DF058D /* DetailsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailsViewController.swift; sourceTree = "<group>"; };
@@ -201,6 +203,7 @@
 				B7A812272C772B5700E7EBC8 /* Managers */,
 				B7A812382C77392600E7EBC8 /* Extensions */,
 				0435E9032C77DF4900F0A472 /* Supporting Files */,
+				3A0953772CF0117800C25312 /* Localizable.xcstrings */,
 			);
 			path = "Countries Info";
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 			knownRegions = (
 				en,
 				Base,
+				sv,
 			);
 			mainGroup = 040DF2E12C762729007034C9;
 			packageReferences = (
@@ -483,6 +487,7 @@
 			files = (
 				040DF2FA2C76272E007034C9 /* LaunchScreen.storyboard in Resources */,
 				040DF2F72C76272E007034C9 /* Assets.xcassets in Resources */,
+				3A0953782CF0117800C25312 /* Localizable.xcstrings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -658,6 +663,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
 			name = Debug;
@@ -712,6 +718,7 @@
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				VALIDATE_PRODUCT = YES;
 			};

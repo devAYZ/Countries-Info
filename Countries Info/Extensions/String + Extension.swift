@@ -12,3 +12,15 @@ extension String? {
         "n/a"
     }
 }
+
+extension String {
+    func localize() -> Self {
+        NSLocalizedString(
+            self,
+            tableName: "Localizable",
+            bundle: .main,
+            value: self,
+            comment: self
+        )
+    }
+}
