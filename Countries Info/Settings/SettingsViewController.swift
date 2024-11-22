@@ -69,7 +69,7 @@ final class SettingsViewController: BaseViewController {
     }
     
     @objc func handleSignout() {
-        showAlert(title: SConstants.areYouSure) { [unowned self] in
+        showAlert(title: SConstants.areYouSure.localize()) { [unowned self] in
             dataManager.logOut()
             coordinator?.openSignin(animated: false)
         }

@@ -49,7 +49,7 @@ final class SettingsViews: UIView {
     
     lazy var signoutButton: UIButton = {
         let button = UIButton()
-        button.setTitle(SConstants.signOut, for: .normal)
+        button.setTitle(SConstants.signOut.localize(), for: .normal)
         button.backgroundColor = .systemOrange.withAlphaComponent(0.5)
         button.layer.cornerRadius = 5
         button.anchor(width: 200, height: 40)
